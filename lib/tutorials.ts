@@ -1,6 +1,11 @@
 import rawTutorials from "@/data/tutorials.json";
 
 type LegacySource = [string, string];
+export type TutorialBlock =
+  | { type: "prompt" | "code"; label?: string; text: string }
+  | { type: "note"; kind?: "tip" | "ok" | "warn" | "danger"; icon?: string; label?: string; text: string }
+  | { type: "list"; items: string[]; ordered?: boolean }
+  | { type: "text"; text?: string };
 export type Tutorial = {
   short: string;
   eyebrow: string;
@@ -10,9 +15,13 @@ export type Tutorial = {
   introIcon?: string;
   introTitle?: string;
   intro?: string;
+  goalLead?: string;
   goal?: string;
+  outcomes?: [string, string][];
+  module?: string;
+  moduleSub?: string;
   criteria?: string[];
-  steps: Array<{ title: string; time: string; target: string; blocks: unknown[]; done: string }>;
+  steps: Array<{ title: string; time: string; target: string; blocks: TutorialBlock[]; done: string }>;
   faq?: [string, string, string][];
   sources?: LegacySource[];
 };

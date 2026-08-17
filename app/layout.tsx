@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./forms.css";
+import "./tutorial.css";
 import { AuthSessionHandler } from "@/components/auth-session-handler";
 
 export const metadata: Metadata = {
