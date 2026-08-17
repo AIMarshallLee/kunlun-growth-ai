@@ -7,7 +7,7 @@
 1. 在 GitHub 创建仓库并推送本目录。
 2. 打开 [Vercel New Project](https://vercel.com/new)，连接 GitHub 仓库。
 3. Framework preset 选 **Next.js**；本项目已配置静态导出。
-4. Build command：`npm run build`；不要手动填写 Output Directory（交给 Vercel 的 Next.js 预设处理）。
+4. Build command：`npm run build`；Output directory：`.next`。
 5. 在 Vercel 的 Project Settings → Environment Variables 配置：
    - `NEXT_PUBLIC_SUPABASE_URL`
    - `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
