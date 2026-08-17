@@ -17,7 +17,9 @@ export type Tutorial = {
   sources?: LegacySource[];
 };
 
-const data = rawTutorials as Record<string, Tutorial>;
+// Legacy tutorial JSON is imported from the original static site. Its arrays are
+// structurally validated by rendering code, so cross the JSON boundary explicitly.
+const data = rawTutorials as unknown as Record<string, Tutorial>;
 
 export const tutorialEntries = Object.entries(data).map(([slug, tutorial]) => ({ slug, ...tutorial }));
 
