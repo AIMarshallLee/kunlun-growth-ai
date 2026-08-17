@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import "./forms.css";
+import { AuthSessionHandler } from "@/components/auth-session-handler";
 
 export const metadata: Metadata = {
   title: "昆仑增长AI实战｜从教程到真实应用",
@@ -8,5 +9,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="zh-CN"><body>{children}</body></html>;
+  return <html lang="zh-CN"><body><AuthSessionHandler />{children}</body></html>;
 }
