@@ -4,7 +4,7 @@ import { SiteHeader } from "@/components/site-header";
 import { TutorialCard } from "@/components/tutorial-card";
 import { tutorialEntries } from "@/lib/tutorials";
 
-const ecommerce = tutorialEntries.filter((item) => ["agentic-product-data", "ai-product-visual-brief", "tiktok-gmvmax-creative-loop", "ecom-3d-ad", "shopify-agentic", "ugc-variants", "amazon-ai-listing", "ugc-factory", "human-loop-store"].includes(item.slug));
+const ecommerce = tutorialEntries.filter((item) => ["ai-shopping-discoverability", "crossborder-localization-qc", "ai-support-escalation-desk", "agentic-product-data", "ai-product-visual-brief", "tiktok-gmvmax-creative-loop", "ecom-3d-ad", "shopify-agentic", "ugc-variants", "amazon-ai-listing", "ugc-factory", "human-loop-store"].includes(item.slug));
 const latest = tutorialEntries.slice(0, 6);
 
 export default function HomePage() {

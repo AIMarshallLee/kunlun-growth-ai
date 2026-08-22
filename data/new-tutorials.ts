@@ -70,5 +70,77 @@ export const newTutorials = {
     ],
     faq: [["很多视频没有进入探索", "授权、可用性、拒审或账户设置有阻塞", "先检查创意状态与授权，不要盲目重复上传"], ["只有一个视频表现好", "变量太多，无法归因", "从胜出视频只复制一个可验证模式"], ["想用 AI 批量铺账号", "可能违反平台规则且难以质控", "保持品牌与创作者授权范围内的合规测试"], ["ROI 目标很紧，没数据", "系统没有足够学习空间", "由账户负责人评估预算和目标，不让 AI 擅自修改"]],
     sources: [["X：TikTok Shop 人类 UGC 与 AI 变体讨论", "https://x.com/maverickecom/status/2035036433707143528"], ["TikTok Shop：How to Use GMV Max Advertising", "https://seller-us.tiktok.com/university/essay?from=feature_guide&identity=1&knowledge_id=8502408340260654&role=1"], ["TikTok Ads：Creative exploration for Product GMV Max", "https://ads.us.tiktok.com/help/article/how-to-improve-creative-exploration-in-product-gmv-max"], ["TikTok Ads：GMV Max Guidelines", "https://ads.tiktok.com/help/article/gmv-max-guidelines?lang=en"]]
+  },
+  "ai-shopping-discoverability": {
+    short: "AI 搜索商品可发现性巡检",
+    eyebrow: "X 商品 feed 优化讨论 · Google 官方文档",
+    titleHtml: "让商品页对<em>搜索与 AI 推荐</em>说清事实",
+    sub: "用 AI 协助盘点标题、属性、价格、库存、配送与退换信息的一致性；不承诺排名，也不生成虚假评价或结构化数据。",
+    chips: ["⏱ 约 <b>40 分钟</b>", "🧩 4 个步骤", "🔎 Google / Merchant Center", "🔒 不伪造评价"],
+    introIcon: "🔍",
+    introTitle: "可发现性从事实一致开始。",
+    intro: "商品页、结构化数据和 Merchant Center feed 同时存在时，应当指向同一份商品事实。AI 可以帮你找缺口，最终修改必须由商品负责人确认。",
+    goalLead: "完成一个 SKU 的发现性巡检表与待修复清单，不直接改动线上数据。",
+    goal: "输出 discoverability-audit.md，逐项记录页面、feed、结构化数据和证据链接的一致性。",
+    outcomes: [["一份字段地图", "知道每个商品事实在哪个系统维护。"], ["一张差异清单", "把缺失、冲突和待确认项分开。"], ["一次人工复核", "确认哪些修改能安全进入发布队列。"]],
+    criteria: ["标题与真实规格相符", "价格、币种、库存可回链", "变体和落地页一致", "不编造评分、评论或促销", "先修源数据再同步", "不承诺展示位置或流量"],
+    module: "把商品事实整理成可校验的信号",
+    moduleSub: "先画出字段来源，再让 AI 比对差异；所有发布动作留在人工审批之后。",
+    steps: [
+      { title: "选定 SKU 与字段范围", time: "8 分钟", target: "从一个资料完整的商品开始", blocks: [{ type: "list", items: ["收集商品页 URL、feed 导出、规格书与政策页", "列出标题、品牌、GTIN（如有）、变体、价格、币种、库存、配送、退换字段", "标记每个字段的唯一事实来源", "没有证据的字段留空，不用 AI 填补"] }], done: "字段地图已写清每项数据由谁维护。" },
+      { title: "让 AI 生成差异草稿", time: "12 分钟", target: "只找问题，不替你发布", blocks: [{ type: "prompt", label: "巡检提示词", text: "比较以下商品页文本、feed 行和结构化数据。输出字段对照表：一致、冲突、缺失、无法确认四类；每一项引用原始文本。重点检查标题、品牌、变体、价格、币种、库存、配送与退换。不要建议伪造评分、评价、折扣或库存。" }, { type: "note", kind: "tip", icon: "🧠", label: "正确用法", text: "把 AI 当成差异检查器，不是事实来源。" }], done: "每个差异均保留原始证据与所在系统。" },
+      { title: "按风险排序修复项", time: "10 分钟", target: "先处理会导致误购的冲突", blocks: [{ type: "list", items: ["P0：价格、库存、配送、退换和变体冲突", "P1：品牌、型号、尺寸、材质等关键属性缺失", "P2：标题可读性、用途说明与图片说明", "评价与评分只使用真实、可证明且允许展示的数据"] }, { type: "note", kind: "danger", icon: "🛑", label: "不要越界", text: "不要把商家商品页伪装成独立评测页，也不要为 rich result 编造正反评价。" }], done: "形成按负责人和系统分配的修复清单。" },
+      { title: "人工确认后再发布与回查", time: "10 分钟", target: "让更新能被追踪", blocks: [{ type: "prompt", label: "发布前审核提示词", text: "根据这份差异清单，列出每项修改的证据、目标系统、风险与验证方法。仅推荐可由资料证明的修改；标记需要法务、物流或商品负责人确认的项目。不要执行任何发布。" }, { type: "note", kind: "ok", icon: "✅", label: "验收", text: "记录修改版本、同步时间与抽检结果；展示资格与排序由平台决定。" }], done: "所有已修复项都有证据、负责人和回查记录。" }
+    ],
+    faq: [["结构化数据和 feed 谁优先", "不同体验可能组合使用多种数据", "保持两边和落地页一致，先修真实来源"], ["能用 AI 补全缺少的属性吗", "模型会把推测写成事实", "只生成待确认问题，由供应商或商品负责人答复"], ["加上评分一定有展示吗", "展示由平台决定", "只提交真实且合规的数据，不做展示承诺"], ["库存更新很快", "多个系统同步延迟", "给高频字段设置发布后抽检与异常处理"]],
+    sources: [["X：商品 feed 与 AI 搜索可发现性讨论", "https://x.com/seosmarty/status/2034308409214787853"], ["Google Search Central：Product structured data", "https://developers.google.com/search/docs/appearance/structured-data/product"], ["Google Search Central：Product snippet guidelines", "https://developers.google.com/search/docs/appearance/structured-data/product-snippet?hl=en"]]
+  },
+  "crossborder-localization-qc": {
+    short: "跨境商品页本地化质检",
+    eyebrow: "X AI 电商运营讨论 · Shopify Markets 官方文档",
+    titleHtml: "把翻译变成<em>可审核的本地化</em>",
+    sub: "用 AI 生成多语言草稿与术语对照，再由懂市场的人审核商品事实、尺寸、法规与政策。不会把自动翻译直接发布为法律承诺。",
+    chips: ["⏱ 约 <b>45 分钟</b>", "🧩 4 个步骤", "🌍 Shopify Markets", "🔒 政策人工翻译"],
+    introIcon: "🌐",
+    introTitle: "翻译对字，本地化对风险负责。",
+    intro: "跨境商品页不只是换一种语言：尺寸、币种、受限说法、退换与配送都需要市场负责人确认。自动翻译是起点，不是批准。",
+    goalLead: "交付一个市场的商品页本地化草稿、术语表和人工审核记录。",
+    goal: "为一个 SKU 形成 locale-pack：翻译草稿、不可翻译事实卡、市场适配项和发布前核验表。",
+    outcomes: [["术语表", "品牌名、型号、尺寸与禁用主张不走样。"], ["本地化草稿", "页面文本与事实卡分离。"], ["审核清单", "政策、配送和法规内容被单独确认。"]],
+    criteria: ["型号、尺寸和材质不被改写", "币种和单位由市场负责人确认", "政策不依赖自动翻译", "不生成医疗/功效承诺", "市场差异有证据", "上线前完成母语或业务审核"],
+    module: "从翻译草稿到市场可用页面",
+    moduleSub: "先固定不能改变的商品事实，再写可适配的表达；把政策和法律信息留给人工确认。",
+    steps: [
+      { title: "建立不可翻译事实卡", time: "8 分钟", target: "锁住 SKU 的硬信息", blocks: [{ type: "list", items: ["品牌、型号、SKU、颜色、材质与包装内容", "尺寸数值、单位与尺码表来源", "允许的产品主张与禁止词", "目标市场的币种、配送和退换信息负责人"] }], done: "事实卡已包含所有不能靠措辞改变的信息。" },
+      { title: "生成带标记的翻译草稿", time: "12 分钟", target: "让不确定之处浮出来", blocks: [{ type: "prompt", label: "本地化提示词", text: "将以下商品页翻译为 [目标语言/地区] 草稿。品牌、型号、SKU、数值尺寸、材料和已批准主张不得改写；任何单位、法规、配送、退换、税费或功效不确定处用 [REVIEW] 标记。提供术语表和逐句风险说明。不要编造本地合规或优惠。" }, { type: "note", kind: "warn", icon: "⚠️", label: "政策例外", text: "退换、隐私、条款等政策内容不应仅依赖自动翻译，应由合适的人工审阅。" }], done: "草稿包含术语表和全部 [REVIEW] 标记。" },
+      { title: "做市场适配核验", time: "15 分钟", target: "检查用户实际会据此做决定的信息", blocks: [{ type: "list", items: ["复核尺寸单位、插头规格、包装与交付范围", "复核币种、税费提示、发货地和时效表述", "复核禁限售、年龄、功效与警示语", "确认本地用语是否准确而非逐字直译"] }, { type: "note", kind: "danger", icon: "🛑", label: "红线", text: "没有确证时，不要把产品描述成获得认证、适合治疗，或保证到货。" }], done: "每一个 [REVIEW] 已由对应负责人通过、改写或删除。" },
+      { title: "发布前同步与回归检查", time: "10 分钟", target: "防止原文更新后翻译过期", blocks: [{ type: "prompt", label: "质检提示词", text: "比较源语言页面与目标市场页面，输出：缺失段落、过期翻译、硬事实差异、政策/配送风险和待人工确认项。不要自行修改文本。" }, { type: "note", kind: "ok", icon: "✅", label: "验收", text: "保存页面版本、审核人、市场与下次复核日期。" }], done: "市场页与源页面的差异均有明确理由或修复计划。" }
+    ],
+    faq: [["自动翻译后能直接发布吗", "商品或政策更新可能让译文过期", "先让业务/母语审核，尤其是政策与产品主张"], ["尺寸要不要换算", "换算规则与商品尺寸可能不同", "保留原始单位并由负责人确认展示方式"], ["本地化能否改卖点", "可能引入未证实主张", "只改表达和已获批准的市场内容"], ["源文改了怎么办", "翻译不会自动保持同步", "在更新后重新运行差异检查"]],
+    sources: [["X：AI 电商运营转向真实流程的讨论", "https://x.com/BigCommerce/status/2015887974483820744"], ["Shopify：Translate & Adapt", "https://help.shopify.com/manual/markets/languages/translate-adapt-app"], ["Shopify：International SEO for markets", "https://help.shopify.com/en/manual/markets/seo"]]
+  },
+  "ai-support-escalation-desk": {
+    short: "AI 跨境客服草稿与升级台",
+    eyebrow: "X Agentic Commerce 讨论 · Shopify Inbox 官方文档",
+    titleHtml: "让 AI 起草，<em>让人承担承诺</em>",
+    sub: "把订单、物流、退换、尺寸和产品问题整理为客服知识卡；AI 只生成可编辑草稿，退款、赔付、改址与投诉升级始终由真人处理。",
+    chips: ["⏱ 约 <b>35 分钟</b>", "🧩 4 个步骤", "💬 客服知识库", "🔒 不自动退款"],
+    introIcon: "💬",
+    introTitle: "快速回复不等于自动承诺。",
+    intro: "客服 AI 的质量取决于店铺资料的准确性。先定义可回答范围与必须升级的场景，再让 AI 生成带证据的草稿。",
+    goalLead: "建立一个适用于一个市场的客服意图表、回复草稿和人工升级规则。",
+    goal: "交付 support-playbook.md：10 个常见意图、资料来源、允许回复、禁答范围和升级路径。",
+    outcomes: [["意图台账", "常见问题有明确事实来源。"], ["可编辑草稿", "回复不越过退款与合规边界。"], ["升级规则", "高风险问题能及时转真人。"]],
+    criteria: ["每个答案链接到政策或商品事实", "未确认订单信息不被编造", "退款、赔付和改址必须升级", "敏感个人信息不粘贴进提示词", "多语言回复由人工检查", "客服发送前可编辑"],
+    module: "把知识与审批门放在回复之前",
+    moduleSub: "先明确 AI 能答什么、不能答什么，再用真实资料起草；让复杂和高风险问题走升级台。",
+    steps: [
+      { title: "整理客服事实源", time: "8 分钟", target: "让每个答案都有出处", blocks: [{ type: "list", items: ["商品详情、尺码/使用说明、库存状态", "配送范围、发货时效与追踪规则", "退换、保修、隐私与支付政策", "当前市场可用语言与人工服务时间"] }], done: "每份资料都有链接、负责人和最后更新时间。" },
+      { title: "定义可答与必升级意图", time: "8 分钟", target: "把承诺权留给人", blocks: [{ type: "code", label: "升级规则示例", text: "可草拟：尺寸、材质、公开配送政策、产品使用说明\n必须升级：退款/赔付、改址、取消订单、欺诈、威胁投诉、医疗或安全问题、个人数据请求" }, { type: "note", kind: "danger", icon: "🛑", label: "边界", text: "AI 不得决定退款、提供法律/医疗建议，或承诺具体到货时间。" }], done: "每种高风险意图都有真人队列或负责人。" },
+      { title: "生成带证据的回复草稿", time: "10 分钟", target: "让草稿易于核对和编辑", blocks: [{ type: "prompt", label: "客服草稿提示词", text: "根据下列店铺资料，为客户问题生成简短、礼貌的 [目标语言] 回复草稿。只使用资料中明确出现的事实；在末尾列出引用来源。如果问题涉及退款、赔付、改址、取消、投诉、安全、健康、个人数据或资料不足，改为说明将由人工跟进，不给出决定或承诺。不要索取完整卡号、证件或不必要的个人信息。" }], done: "每条草稿都有来源，并能一眼识别是否需要升级。" },
+      { title: "人工发送与每周校准", time: "9 分钟", target: "把真实问题变成知识改进", blocks: [{ type: "list", items: ["客服逐条审核语气、事实、语言和订单上下文", "发送后记录意图、是否升级、知识缺口与客户反馈", "每周优先补充重复出现且有明确事实来源的问题", "政策或产品变更后重新审核相关草稿"] }, { type: "note", kind: "ok", icon: "✅", label: "验收", text: "抽检 10 条已发送回复：无未经授权的承诺、无失效政策链接。" }], done: "客服负责人签收本周的知识缺口与升级记录。" }
+    ],
+    faq: [["AI 回复错了怎么办", "源资料缺失或客服未审核", "立即更正客户、更新事实源并复盘意图"], ["能让 AI 自动退款吗", "退款涉及资金和例外判断", "保留给有权限的人工审批"], ["客户要求查订单", "需要访问个人订单信息", "在受控客服系统中由授权人员处理"], ["英文草稿能直接发吗", "语气和事实可能不适配市场", "由客服检查语言与订单上下文后发送"]],
+    sources: [["X：AI 购物渠道与商家信息治理讨论", "https://x.com/seki82214232/status/2037747367735349744"], ["Shopify Inbox：AI-generated suggested replies", "https://help.shopify.com/en/manual/inbox/chat-settings-and-appearance/shopify-magic"], ["Shopify Inbox：Managing customer conversations", "https://help.shopify.com/en/manual/inbox/conversations?rd=1"], ["Shopify Inbox：Quick replies", "https://help.shopify.com/en/manual/inbox/configure-inbox/quick-replies"]]
   }
 } as const;
