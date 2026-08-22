@@ -1,4 +1,5 @@
 import rawTutorials from "@/data/tutorials.json";
+import { newTutorials } from "@/data/new-tutorials";
 
 type LegacySource = [string, string];
 export type TutorialBlock =
@@ -28,7 +29,7 @@ export type Tutorial = {
 
 // Legacy tutorial JSON is imported from the original static site. Its arrays are
 // structurally validated by rendering code, so cross the JSON boundary explicitly.
-const data = rawTutorials as unknown as Record<string, Tutorial>;
+const data = { ...rawTutorials, ...newTutorials } as unknown as Record<string, Tutorial>;
 
 export const tutorialEntries = Object.entries(data).map(([slug, tutorial]) => ({ slug, ...tutorial }));
 
@@ -51,7 +52,7 @@ export function sourceAuthor(url: string) {
 }
 
 export function categoryFor(slug: string) {
-  if (slug.includes("ecom") || slug.includes("shopify") || slug.includes("amazon") || slug.includes("ugc") || slug.includes("store") || slug.includes("health")) return "跨境电商";
+  if (slug.includes("ecom") || slug.includes("shopify") || slug.includes("amazon") || slug.includes("ugc") || slug.includes("store") || slug.includes("health") || slug.includes("agentic") || slug.includes("product") || slug.includes("tiktok")) return "跨境电商";
   if (slug.includes("video") || slug.includes("tts") || slug.includes("character")) return "创作";
   if (slug.includes("rag") || slug.includes("document") || slug.includes("csv")) return "数据与知识";
   if (slug.includes("agent") || slug.includes("n8n") || slug.includes("codex")) return "Agent 自动化";
