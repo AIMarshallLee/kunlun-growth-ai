@@ -1,0 +1,39 @@
+# Source baseline captured before P0 identity deployment
+# Production deployment: dpl_gwBqT7gAoRvHDyuHCqYmgJV5diYm
+# Deployment URL: https://kunlun-growth-enterprise-site-iqzh0gwgl-daseanles-projects.vercel.app
+# Captured at: 2026-08-23T13:12:57.933Z
+d2464da39aaaf60e9da5319d824c7f6b195d767162a56c7b7f9f06e6137091ae  https://kunlungrowth.com/
+5b2c4c1c0b614a8afb7c667c1a367e0a8b9000721652cefa653f6ddb423a96b4  https://kunlungrowth.com/services/enterprise-ai-training/
+f77ba870fb9b3f66787fc4de4dfa230f20a6a4f600831d0286a306c2dab0c334  https://kunlungrowth.com/services/enterprise-ai-scenario-diagnosis/
+50d359e4604c58ef59f018c4b0a09fd5cefb1f893acf36bb61326d40b126a30a  https://kunlungrowth.com/services/enterprise-knowledge-base/
+64728e1c8ad110818dd3488b6b93b090e1929fe60cff46b919e3adba4db84f62  https://kunlungrowth.com/services/enterprise-ai-implementation/
+d3cf96df5ddebac89e4ecb02f2ccb996410656e8d41a6c6f8fbaceaac6524ea0  https://kunlungrowth.com/method/enterprise-ai-rollout/
+66a0872a429ca5ee52d804c91c022b21bc56c285cec0268c76f24eee4b9baf71  https://kunlungrowth.com/faq/
+07cc78e7f7e9e2ae6f8f2b1a4a5a6b0414b7bf31041aeaca6b3804fc370189f6  https://kunlungrowth.com/about/
+569fb906eabca0c9f0665e0eac045d9b94ce7fa2d9254b3d849a16ab0de45145  https://kunlungrowth.com/solutions/content-team-ai-efficiency/
+a1698a742c580a3f2c48188ec48549094f43dce70d1e11280c41d7abc84d9e1d  https://kunlungrowth.com/resources/
+793077df677272b3107c9e6dec93cf3e1967734321a21e8311e527baf1032ccc  https://kunlungrowth.com/resources/enterprise-ai-scenario-diagnosis/
+7549cc4a201e6ef656b10accedd23dd6ce2d46fa7220c59ff0c9d06201e99517  https://kunlungrowth.com/resources/enterprise-knowledge-base-governance/
+2b86fedf988313e4851d1baf1841358f86bf33ec36cb716aeec6f8cc2b6b07a5  https://kunlungrowth.com/resources/content-team-ai-review-sop/
+f7df1d61303b5a6b14f3aa2e27ae015feee6ead1b54a9a99354a132bc0d40c29  https://kunlungrowth.com/resources/enterprise-ai-pilot-checklist/
+744a82328dad0f5ff88400894e2b48d359fb7e2a3a7afc1717ca72c7665fe03c  https://kunlungrowth.com/resources/ai-agent-human-review-governance/
+f7a973252e4a94781f41388277807eec2a3088c2ec5adf14599f7eb47ec2aeaf  https://kunlungrowth.com/resources/enterprise-ai-field-cases/
+4c83806d7f5a5f126a1bbc155c5d58c05fe31593a8de6e385a2298f0aafe1367  https://kunlungrowth.com/resources/enterprise-ai-customer-service-pilot/
+f5b3ffef00b5d9cf4e33c91c1121dfab028d66716996535390549c0bba53ada1  https://kunlungrowth.com/resources/sales-team-ai-pilot/
+c011d6903bee50a1327ef58b08cd7146af4a06090e7ec8d838e8e33980ef0678  https://kunlungrowth.com/resources/business-meeting-ai-pilot/
+3bf81a125b0bd2e91c30924218dfa159c3dbd85bcbf827e94565ed1e740c045e  https://kunlungrowth.com/resources/enterprise-ai-training-pilot/
+950b3260b0c71a74f33f3edb48c8a20f623823b14ec25ab6f5d538d127472606  https://kunlungrowth.com/resources/enterprise-ai-roi-pilot/
+beefc4ef2803a405736537ace0d42f58637a87478a62d28ece5eefe2472db9b3  https://kunlungrowth.com/resources/enterprise-ai-security-governance/
+173895410130126ca0cdac5627aae7016befc83cfb125839d395521c5b220b69  https://kunlungrowth.com/resources/enterprise-ai-project-initiation/
+cdc718a31795906f3626deedd1eca79c1f1dfeeb82b0c7098c33990c0f553300  https://kunlungrowth.com/resources/enterprise-ai-training-or-pilot/
+1d5b151e276532c6d5948326de3aa6c309dc662f396e49aa69b87495f2146639  https://kunlungrowth.com/resources/enterprise-ai-project-failure/
+8ffadafedf98116729255784e9c088c8f92a06aa6677c381014de4000a6d08d8  https://kunlungrowth.com/resources/enterprise-ai-implementation-plan/
+127dc99e19ed0fc13c10253a9c3f47b5342af42dfb5ea06973b0518e1e349ca8  https://kunlungrowth.com/resources/enterprise-ai-pilot-acceptance/
+dde7ca01bd858302ced6379cc4659364d4748bd5752ea72cdc52573c28b91ab9  https://kunlungrowth.com/resources/ai-customer-service-human-handoff/
+09fdc54b1454c066749b3e8104b60e6da2e3ed9514767ad6c9354d2230586fc4  https://kunlungrowth.com/resources/sales-ai-follow-up-sop/
+06749342c034276b68612a52ee9161e459aa9f0af760fd541f1b2eca7f4579c2  https://kunlungrowth.com/resources/enterprise-ai-training-evaluation/
+69e295bfad803d4e59701174ef3884dc6526ef2b1cf48910f09da5d465b3e941  https://kunlungrowth.com/resources/enterprise-ai-pilot-kit/
+67bb0151d3231bc84aa88ea99dc0eccafd2663abe55092d584f78627fc19e64c  https://kunlungrowth.com/site.css
+9c1406539a66f17a3ef41b4107f159884018b1aebd1840e1d2207be58c37571e  https://kunlungrowth.com/site.js
+370f8c34bd3699a8263852ffe8a57f81dd9d3dfb861238d84e1ded7c12c58959  https://kunlungrowth.com/robots.txt
+51a47a95786a9ebfdd4b81c172f9464f9e365874c7becc8add4d321221894e31  https://kunlungrowth.com/sitemap.xml
