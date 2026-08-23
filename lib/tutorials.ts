@@ -1,6 +1,9 @@
 import rawTutorials from "@/data/tutorials.json";
 import { newTutorials } from "@/data/new-tutorials";
 import { expansionTutorials } from "@/data/expansion-tutorials";
+import { expansionRoundTwoA } from "@/data/expansion-round-two-a";
+import { expansionRoundTwoB } from "@/data/expansion-round-two-b";
+import { expansionRoundTwoC } from "@/data/expansion-round-two-c";
 
 type LegacySource = [string, string];
 export type TutorialBlock =
@@ -30,7 +33,14 @@ export type Tutorial = {
 
 // Legacy tutorial JSON is imported from the original static site. Its arrays are
 // structurally validated by rendering code, so cross the JSON boundary explicitly.
-const data = { ...rawTutorials, ...newTutorials, ...expansionTutorials } as unknown as Record<string, Tutorial>;
+const data = {
+  ...rawTutorials,
+  ...newTutorials,
+  ...expansionTutorials,
+  ...expansionRoundTwoA,
+  ...expansionRoundTwoB,
+  ...expansionRoundTwoC,
+} as unknown as Record<string, Tutorial>;
 
 export const tutorialEntries = Object.entries(data).map(([slug, tutorial]) => ({ slug, ...tutorial }));
 
@@ -53,7 +63,14 @@ export function sourceAuthor(url: string) {
 }
 
 export function categoryFor(slug: string) {
-  if (slug.includes("ecom") || slug.includes("shopify") || slug.includes("amazon") || slug.includes("ugc") || slug.includes("store") || slug.includes("health") || slug.includes("agentic") || slug.includes("product") || slug.includes("tiktok") || slug.includes("merchant") || slug.includes("klaviyo") || slug.includes("returns") || slug.includes("inventory") || slug.includes("chargeback") || slug.includes("commerce") || slug.includes("creative") || slug.includes("pinterest") || slug.includes("meta") || slug.includes("hs-code") || slug.includes("gpsr") || slug.includes("support-knowledge")) return "跨境电商";
+  const ecommerceTerms = [
+    "ecom", "shopify", "amazon", "ugc", "store", "health", "agentic", "product", "tiktok",
+    "merchant", "klaviyo", "returns", "inventory", "chargeback", "commerce", "creative", "pinterest",
+    "meta", "hs-code", "gpsr", "support-knowledge", "crossborder", "shipping", "payout", "fraud",
+    "onsite-search", "consent", "account-health", "vat-ioss", "customer-data", "b2b", "cro",
+    "customer-account", "dropship", "tryon", "youtube-shopping", "campaign",
+  ];
+  if (ecommerceTerms.some((term) => slug.includes(term))) return "跨境电商";
   if (slug.includes("video") || slug.includes("tts") || slug.includes("character")) return "创作";
   if (slug.includes("rag") || slug.includes("document") || slug.includes("csv")) return "数据与知识";
   if (slug.includes("agent") || slug.includes("n8n") || slug.includes("codex")) return "Agent 自动化";
