@@ -1,1 +1,119 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/><title>企业 AI 试点方案与验收标准怎么定？｜昆仑增长</title><meta name="description" content="企业 AI 试点方案与验收标准怎么定？先定义真实任务、基线、人审、观察信号和停止条件，再决定是否扩大。"/><link rel="canonical" href="https://kunlungrowth.com/resources/enterprise-ai-pilot-acceptance/"/><link rel="stylesheet" href="/site.css"/><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"企业 AI 试点方案与验收标准怎么定？","url":"https://kunlungrowth.com/resources/enterprise-ai-pilot-acceptance/","inLanguage":"zh-CN","author":{"@type":"Organization","@id":"https://kunlungrowth.com/#organization"},"publisher":{"@id":"https://kunlungrowth.com/#organization"},"datePublished":"2026-08-23","dateModified":"2026-08-23"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"企业 AI 试点如何验收？","acceptedAnswer":{"@type":"Answer","text":"以真实任务是否跑通、负责人是否认可、人工审核成本是否可接受、结果是否比基线更稳定为核心，而不是以演示次数或模型参数验收。"}},{"@type":"Question","name":"AI 试点多久结束？","acceptedAnswer":{"@type":"Answer","text":"由任务频率、样本条件和验收方式决定。应在启动前约定复盘日期，而不是为了延长项目而无限期运行。"}}]}]}</script></head><body><header class="site-header"><a class="brand" href="/"><span class="brand-mark">K</span><span>昆仑增长</span></a><nav aria-label="主导航"><a href="/services/enterprise-ai-implementation/">落地</a><a href="/resources/">资源</a></nav><a class="header-cta" href="https://work.weixin.qq.com/kfid/kfccff6a6edfbee73bc">预约沟通 ↗</a></header><main class="page-main"><p class="breadcrumb"><a href="/">首页</a> / <a href="/resources/">资源中心</a> / 企业 AI 试点验收</p><p class="page-kicker">试点方法 / Pilot Acceptance</p><h1>企业 AI 试点方案与验收标准，<br/>怎么定？</h1><p class="page-lead">不要把“模型能生成内容”当作验收。验收只看一条真实业务任务：是否有人使用、是否能回溯、是否比原流程更稳定，以及风险是否仍在可控范围。</p><section class="page-section"><h2>先有基线，才谈改进</h2><p>启动前记录当前处理量、耗时、返工、遗漏或等待；试点中保留样本、AI候选结果、人工修改和异常记录。没有基线，任何“提效”都无法判断。</p></section><section class="page-section"><h2>验收必须包括人审与回退</h2><p>定义哪些输出由业务负责人确认、异常出现时回到哪个原流程、什么情况立即暂停。这样验收的不是“自动化程度”，而是可持续的业务可靠性。</p></section><details class="copy-checklist"><summary>复制：企业 AI 试点验收卡</summary><textarea readonly aria-label="企业 AI 试点验收卡">真实任务：&#10;当前基线：&#10;试点样本范围：&#10;业务验收人：&#10;人工审核点：&#10;观察信号：&#10;异常回退：&#10;通过 / 修正 / 停止的判定：</textarea></details><section class="page-cta"><h2>把验收写在试点开始前。</h2><a class="button light" href="https://work.weixin.qq.com/kfid/kfccff6a6edfbee73bc">发起场景沟通 →</a></section><nav class="page-footer-links"><a href="/resources/enterprise-ai-pilot-checklist/">企业 AI 试点检查清单</a><a href="/resources/enterprise-ai-roi-pilot/">企业 AI ROI 怎么算</a></nav></main><footer><p>© 2026 Kunlun Growth</p></footer></body></html>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>企业 AI 试点方案与验收标准：测试集和验收记录模板｜昆仑增长</title>
+    <meta name="description" content="企业 AI 试点如何验收？先定义真实任务、基线、人审、测试集版本、单条验收记录和停止条件，再决定通过、整改、暂停或扩大。" />
+    <link rel="canonical" href="https://kunlungrowth.com/resources/enterprise-ai-pilot-acceptance/" />
+    <link rel="stylesheet" href="/site.css" />
+    <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@graph":[
+          {"@type":"Article","headline":"企业 AI 试点方案与验收标准：测试集和验收记录模板","description":"用真实任务、基线、人工审核、版本化测试集与单条记录验收企业 AI 试点。","url":"https://kunlungrowth.com/resources/enterprise-ai-pilot-acceptance/","inLanguage":"zh-CN","author":{"@type":"Organization","@id":"https://kunlungrowth.com/#organization"},"publisher":{"@id":"https://kunlungrowth.com/#organization"},"datePublished":"2026-08-23","dateModified":"2026-08-23","isPartOf":{"@type":"WebSite","@id":"https://kunlungrowth.com/#website"}},
+          {"@type":"FAQPage","mainEntity":[
+            {"@type":"Question","name":"企业 AI 试点如何验收？","acceptedAnswer":{"@type":"Answer","text":"以真实任务是否跑通、负责人是否认可、人工审核成本是否可接受、结果是否比基线更稳定为核心，并保留测试集、人工修改和异常记录。"}},
+            {"@type":"Question","name":"企业 AI 试点多久结束？","acceptedAnswer":{"@type":"Answer","text":"由任务频率、样本条件和验收方式决定。应在启动前约定复盘日期，而不是为了延长项目无限期运行。"}},
+            {"@type":"Question","name":"企业 AI 测试集一定要使用真实客户数据吗？","acceptedAnswer":{"@type":"Answer","text":"不一定。可以先使用合成、脱敏或字段级样本；只有在授权、最小化和安全边界明确后，才使用真实业务材料。"}},
+            {"@type":"Question","name":"测试集版本变化后，原验收结果还能沿用吗？","acceptedAnswer":{"@type":"Answer","text":"不能直接沿用。样本、规则、模型或流程发生实质变化时应建立新版本，并说明可比性和重新测试范围。"}},
+            {"@type":"Question","name":"企业 AI 试点验收通过后可以取消人工审核吗？","acceptedAnswer":{"@type":"Answer","text":"不能自动推断。是否保留人工审核要按风险、任务和组织制度决定；对外发送、权限变更、付款等高风险动作仍应保留确认门。"}}
+          ]},
+          {"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首页","item":"https://kunlungrowth.com/"},{"@type":"ListItem","position":2,"name":"企业 AI 落地资源中心","item":"https://kunlungrowth.com/resources/"},{"@type":"ListItem","position":3,"name":"企业 AI 试点验收","item":"https://kunlungrowth.com/resources/enterprise-ai-pilot-acceptance/"}]}
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header"><a class="brand" href="/"><span class="brand-mark">K</span><span>昆仑增长</span></a><nav aria-label="主导航"><a href="/services/enterprise-ai-training/">培训</a><a href="/services/enterprise-ai-implementation/">落地</a><a href="/resources/">资源</a><a href="/faq/">FAQ</a></nav><a class="header-cta" href="https://work.weixin.qq.com/kfid/kfccff6a6edfbee73bc">预约沟通 <span>↗</span></a></header>
+    <main class="page-main">
+      <p class="breadcrumb"><a href="/">首页</a> / <a href="/resources/">资源中心</a> / 企业 AI 试点验收</p>
+      <p class="page-kicker">试点方法 / Pilot Acceptance</p>
+      <h1>企业 AI 试点怎么验收？<br />用测试集和真实记录说话。</h1>
+      <p class="page-lead">不要把“模型能生成内容”当作验收。验收只看一条真实业务任务：是否有人使用、是否能回溯、是否比原流程更稳定，以及风险是否仍在可控范围。</p>
+
+      <section class="page-section"><h2>先有基线，才谈改进</h2><p>启动前记录当前处理量、耗时、返工、遗漏或等待；试点中保留样本、AI 候选结果、人工修改和异常记录。没有基线，任何“提效”都无法判断。</p><p>测试集字段应来自已经确认的<a href="/resources/enterprise-ai-needs-survey/">需求与任务</a>，不能为了让结果好看而只选容易样本。</p></section>
+
+      <section class="page-section"><h2>验收必须包括人审与回退</h2><p>定义哪些输出由业务负责人确认、异常出现时回到哪个原流程、什么情况立即暂停。这样验收的不是“自动化程度”，而是可持续的业务可靠性。</p></section>
+
+      <section class="page-section" id="test-set-record">
+        <h2>先固定测试集，再填写验收记录</h2>
+        <p>测试集不是越大越好，而是要覆盖真实任务、正常样本、边界样本、反例和必须转人工的情况。固定版本后再跑试点；若样本、规则或模型发生变化，建立新版本，不能把不同版本结果混在一起。</p>
+        <table><thead><tr><th>字段</th><th>填写要求</th><th>验收时检查</th></tr></thead><tbody>
+          <tr><td>测试集 ID / 版本</td><td>记录创建与变更日期</td><td>报告、运行记录与版本一致</td></tr>
+          <tr><td>样本来源与授权</td><td>来源类别、授权/脱敏状态、可用期限</td><td>无未授权个人或内部资料</td></tr>
+          <tr><td>任务与期望输出</td><td>输入、上下文、期望答案/动作和判定规则</td><td>业务负责人确认可判定</td></tr>
+          <tr><td>样本分层</td><td>正常、边界、反例、冲突、越权/转人工</td><td>不能只用“容易题”</td></tr>
+          <tr><td>实际输出与人审</td><td>AI 输出、人工修改、结论和审核人</td><td>可回溯，禁止无人审外发</td></tr>
+          <tr><td>异常与回退</td><td>错误类别、处理动作、是否回原流程</td><td>触发条件明确且可复现</td></tr>
+          <tr><td>验收结论</td><td>通过、整改后复验、暂停或终止及理由</td><td>由指定验收人确认</td></tr>
+        </tbody></table>
+      </section>
+
+      <section class="page-section">
+        <h2>可复制：测试集与验收记录</h2>
+        <details class="copy-checklist" open><summary>复制测试集字段和验收记录</summary><textarea id="pilot-test-acceptance" readonly aria-label="企业 AI 试点测试集字段和验收记录">企业 AI 试点测试集与验收记录
+项目 / 场景：
+测试集 ID / 版本：
+创建日期 / 最近变更：
+样本来源类别：
+授权 / 脱敏状态与有效期：
+运行环境 / 工具版本：
+业务负责人：
+验收人：
+
+【测试集总览】
+样本总数：
+正常样本数：
+边界样本数：
+反例 / 冲突样本数：
+必须转人工 / 禁止动作样本数：
+基线记录位置：
+
+【单条记录】
+记录编号：
+输入 / 任务描述（不得粘贴不必要的敏感原文）：
+样本分层：正常 / 边界 / 反例 / 冲突 / 转人工
+期望输出或判定规则：
+AI 实际输出摘要：
+人工修改或审核意见：
+结果：通过 / 需整改 / 转人工 / 回退
+错误类别：事实 / 完整性 / 格式 / 权限 / 安全 / 其他
+是否触发禁止动作：
+异常处理与回退记录：
+审核人 / 审核时间：
+
+【批次验收】
+运行批次与日期：
+输入版本和规则版本：
+结果摘要及未通过记录编号：
+返工 / 人审负担观察：
+与基线的可比说明（不写未经验证的因果）：
+整改责任人和截止日期：
+复验日期：
+最终结论：通过 / 整改后通过 / 暂停 / 终止
+验收人确认：
+业务负责人确认：
+备注：本记录不构成固定 ROI 或法律、合规结论；涉及敏感数据请只保存受控引用。</textarea><button class="copy-action" type="button" data-copy-target="pilot-test-acceptance">一键复制验收记录</button></details>
+      </section>
+
+      <section class="page-section"><h2>四种结论，不只写“验收通过”</h2><table><thead><tr><th>结论</th><th>适用情况</th><th>下一步</th></tr></thead><tbody><tr><td>通过</td><td>真实任务跑通、记录可回溯、风险可控、验收人认可</td><td>按书面条件决定是否扩展</td></tr><tr><td>整改后复验</td><td>问题明确且可在限定范围内修正</td><td>指定责任人、截止日和新测试版本</td></tr><tr><td>暂停</td><td>样本、权限、负责人或人审条件暂时缺失</td><td>回到原流程，补齐条件后再决定</td></tr><tr><td>终止</td><td>风险、成本或业务价值不支持继续</td><td>导出资产、删除资料并完成交接记录</td></tr></tbody></table></section>
+
+      <details class="copy-checklist"><summary>复制：企业 AI 试点验收简卡</summary><textarea readonly aria-label="企业 AI 试点验收卡">真实任务：
+当前基线：
+试点样本范围：
+业务验收人：
+人工审核点：
+观察信号：
+异常回退：
+通过 / 修正 / 停止的判定：</textarea></details>
+
+      <section class="page-section faq-list"><h2>常见问题</h2><details><summary>企业 AI 试点如何验收？</summary><p>以真实任务是否跑通、负责人是否认可、人工审核成本是否可接受、结果是否比基线更稳定为核心，并保留测试集、人工修改和异常记录。</p></details><details><summary>企业 AI 试点多久结束？</summary><p>由任务频率、样本条件和验收方式决定。应在启动前约定复盘日期，而不是为了延长项目无限期运行。</p></details><details><summary>企业 AI 测试集一定要使用真实客户数据吗？</summary><p>不一定。可以先使用合成、脱敏或字段级样本；只有在授权、最小化和安全边界明确后，才使用真实业务材料。</p></details><details><summary>测试集版本变化后，原验收结果还能沿用吗？</summary><p>不能直接沿用。样本、规则、模型或流程发生实质变化时应建立新版本，并说明可比性和重新测试范围。</p></details><details><summary>企业 AI 试点验收通过后可以取消人工审核吗？</summary><p>不能自动推断。是否保留人工审核要按风险、任务和组织制度决定；对外发送、权限变更、付款等高风险动作仍应保留确认门。</p></details></section>
+
+      <section class="page-cta"><h2>把验收写在试点开始前。</h2><p>带着真实任务、基线、样本权限和验收人沟通，先把测试集、人工审核和停止条件定下来。</p><a class="button light" href="https://work.weixin.qq.com/kfid/kfccff6a6edfbee73bc">发起场景沟通 <span>→</span></a></section>
+      <nav class="page-footer-links" aria-label="延伸阅读"><a href="/resources/enterprise-ai-needs-survey/">企业 AI 需求调研表</a><a href="/resources/enterprise-ai-project-initiation/">企业 AI 项目立项</a><a href="/resources/enterprise-ai-project-budget-checklist/">企业 AI 项目预算清单</a><a href="/resources/enterprise-generative-ai-employee-usage-policy/">生成式 AI 员工使用规范</a><a href="/resources/enterprise-ai-pilot-checklist/">企业 AI 试点检查清单</a><a href="/resources/enterprise-ai-roi-pilot/">企业 AI ROI 怎么算</a><a href="/resources/">资源中心</a></nav>
+    </main>
+    <footer><a class="brand" href="/"><span class="brand-mark">K</span><span>昆仑增长</span></a><p>企业 AI 培训与落地</p><p>© 2026 Kunlun Growth</p></footer>
+    <script src="/site.js" defer></script>
+  </body>
+</html>

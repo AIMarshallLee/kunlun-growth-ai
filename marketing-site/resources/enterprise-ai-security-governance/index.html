@@ -1,4 +1,142 @@
 <!doctype html>
-<html lang="zh-CN"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>企业 AI 数据安全与治理怎么做：先定边界，再接入流程｜昆仑增长</title><meta name="description" content="企业 AI 数据安全与治理怎么做？从资料分级、权限、人工审核、外部动作与复盘机制建立可控的 AI 试点边界。" /><link rel="canonical" href="https://kunlungrowth.com/resources/enterprise-ai-security-governance/" /><link rel="stylesheet" href="/site.css" /><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Article","headline":"企业 AI 数据安全与治理怎么做：先定边界，再接入流程","url":"https://kunlungrowth.com/resources/enterprise-ai-security-governance/","inLanguage":"zh-CN","author":{"@type":"Organization","@id":"https://kunlungrowth.com/#organization"},"publisher":{"@id":"https://kunlungrowth.com/#organization"},"datePublished":"2026-08-22","dateModified":"2026-08-22"},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"企业 AI 试点可以直接上传内部资料吗？","acceptedAnswer":{"@type":"Answer","text":"不能默认可以。先确认资料所有者、敏感等级、授权范围、保留期限和可访问人员；不清楚时只使用已授权的低敏样本。"}},{"@type":"Question","name":"AI 能否直接发消息、改订单或提交审批？","acceptedAnswer":{"@type":"Answer","text":"首个试点应优先让 AI 准备草稿、检索依据和提示异常；对外发送、付款、订单变更、审批和正式发布应保留明确的人为确认。"}}]}]}</script></head><body>
-<header class="site-header"><a class="brand" href="/"><span class="brand-mark">K</span><span>昆仑增长</span></a><nav aria-label="主导航"><a href="/services/enterprise-ai-training/">培训</a><a href="/services/enterprise-ai-implementation/">落地</a><a href="/resources/">资源</a><a href="/faq/">FAQ</a></nav><a class="header-cta" href="https://work.weixin.qq.com/kfid/kfccff6a6edfbee73bc">预约沟通 <span>↗</span></a></header>
-<main class="page-main"><p class="breadcrumb"><a href="/">首页</a> / <a href="/resources/">资源中心</a> / 企业 AI 数据安全与治理</p><p class="page-kicker">治理方法 / Enterprise AI Governance</p><h1>企业 AI 数据安全与治理怎么做？<br />先定边界，再接入流程。</h1><p class="page-lead">安全不是在项目结束时补一份说明。首个 AI 试点开始前，就要确认什么资料能用、谁能看、AI 能准备什么、什么动作必须由人决定与执行。</p><section class="page-section"><h2>先做资料分级，不做“全部接入”</h2><p>把候选资料至少区分为：可公开、内部可用、受限资料和禁止接入。每类资料要有所有者、允许用途、访问角色和保留方式。授权链不明确时，只用已脱敏或已授权的最小样本验证流程。</p></section><section class="page-section"><h2>把权限和动作拆开</h2><p>读资料、生成草稿、提出建议与执行外部动作不是同一件事。首轮应以检索出处、候选回复和异常提示为主；付款、订单修改、对外发送、审批、价格变更和正式发布，都必须设为人工确认动作。</p></section><section class="page-section"><h2>给异常留出回退路径</h2><p>遇到资料不足、回答不确定、敏感内容、投诉、例外政策或系统异常时，由谁接管、回到哪个原流程、怎样记录原因，都要在启动时约定。</p></section><details class="copy-checklist"><summary>复制：企业 AI 试点治理卡</summary><textarea readonly aria-label="企业 AI 试点治理卡">企业 AI 试点治理卡&#10;业务流程与负责人：&#10;可使用资料及所有者：&#10;禁止接入的资料或动作：&#10;可访问角色：&#10;AI 只允许准备什么：&#10;必须人工确认什么：&#10;异常升级给谁：&#10;回退到哪个原流程：</textarea></details><section class="page-cta"><h2>先把边界写清楚，再讨论能力。</h2><p>带着现有流程与资料条件来，我们先判断适合怎样收窄试点范围。</p><a class="button light" href="https://work.weixin.qq.com/kfid/kfccff6a6edfbee73bc">发起场景沟通 <span>→</span></a></section><nav class="page-footer-links" aria-label="延伸阅读"><a href="/resources/ai-agent-human-review-governance/">Agent 人工审核与执行门禁</a><a href="/resources/enterprise-knowledge-base-governance/">企业知识库建设标准</a><a href="/resources/enterprise-ai-pilot-checklist/">企业 AI 试点检查清单</a><a href="/resources/">资源中心</a></nav></main><footer><a class="brand" href="/"><span class="brand-mark">K</span><span>昆仑增长</span></a><p>企业 AI 培训与落地</p><p>© 2026 Kunlun Growth</p></footer></body></html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>企业 AI 数据安全与治理怎么做：先定边界，再接入流程｜昆仑增长</title>
+    <meta
+      name="description"
+      content="企业 AI 数据安全与治理怎么做？从资料分级、权限、人工审核、外部动作与复盘机制建立可控的 AI 试点边界。"
+    />
+    <link
+      rel="canonical"
+      href="https://kunlungrowth.com/resources/enterprise-ai-security-governance/"
+    />
+    <link rel="stylesheet" href="/site.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Article",
+            "headline": "企业 AI 数据安全与治理怎么做：先定边界，再接入流程",
+            "url": "https://kunlungrowth.com/resources/enterprise-ai-security-governance/",
+            "inLanguage": "zh-CN",
+            "author": {
+              "@type": "Organization",
+              "@id": "https://kunlungrowth.com/#organization"
+            },
+            "publisher": { "@id": "https://kunlungrowth.com/#organization" },
+            "datePublished": "2026-08-22",
+            "dateModified": "2026-08-23"
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              {
+                "@type": "Question",
+                "name": "企业 AI 试点可以直接上传内部资料吗？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "不能默认可以。先确认资料所有者、敏感等级、授权范围、保留期限和可访问人员；不清楚时只使用已授权的低敏样本。"
+                }
+              },
+              {
+                "@type": "Question",
+                "name": "AI 能否直接发消息、改订单或提交审批？",
+                "acceptedAnswer": {
+                  "@type": "Answer",
+                  "text": "首个试点应优先让 AI 准备草稿、检索依据和提示异常；对外发送、付款、订单变更、审批和正式发布应保留明确的人为确认。"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/"
+        ><span class="brand-mark">K</span><span>昆仑增长</span></a
+      >
+      <nav aria-label="主导航">
+        <a href="/services/enterprise-ai-training/">培训</a
+        ><a href="/services/enterprise-ai-implementation/">落地</a
+        ><a href="/resources/">资源</a><a href="/faq/">FAQ</a>
+      </nav>
+      <a
+        class="header-cta"
+        href="https://work.weixin.qq.com/kfid/kfccff6a6edfbee73bc"
+        >预约沟通 <span>↗</span></a
+      >
+    </header>
+    <main class="page-main">
+      <p class="breadcrumb">
+        <a href="/">首页</a> / <a href="/resources/">资源中心</a> / 企业 AI
+        数据安全与治理
+      </p>
+      <p class="page-kicker">治理方法 / Enterprise AI Governance</p>
+      <h1>企业 AI 数据安全与治理怎么做？<br />先定边界，再接入流程。</h1>
+      <p class="page-lead">
+        安全不是在项目结束时补一份说明。首个 AI
+        试点开始前，就要确认什么资料能用、谁能看、AI
+        能准备什么、什么动作必须由人决定与执行。
+      </p>
+      <section class="page-section">
+        <h2>先做资料分级，不做“全部接入”</h2>
+        <p>
+          把候选资料至少区分为：可公开、内部可用、受限资料和禁止接入。每类资料要有所有者、允许用途、访问角色和保留方式。授权链不明确时，只用已脱敏或已授权的最小样本验证流程。
+        </p>
+      </section>
+      <section class="page-section">
+        <h2>把权限和动作拆开</h2>
+        <p>
+          读资料、生成草稿、提出建议与执行外部动作不是同一件事。首轮应以检索出处、候选回复和异常提示为主；付款、订单修改、对外发送、审批、价格变更和正式发布，都必须设为人工确认动作。
+        </p>
+      </section>
+      <section class="page-section">
+        <h2>给异常留出回退路径</h2>
+        <p>
+          遇到资料不足、回答不确定、敏感内容、投诉、例外政策或系统异常时，由谁接管、回到哪个原流程、怎样记录原因，都要在启动时约定。
+        </p>
+      </section>
+      <details class="copy-checklist">
+        <summary>复制：企业 AI 试点治理卡</summary>
+        <textarea readonly aria-label="企业 AI 试点治理卡">
+企业 AI 试点治理卡&#10;业务流程与负责人：&#10;可使用资料及所有者：&#10;禁止接入的资料或动作：&#10;可访问角色：&#10;AI 只允许准备什么：&#10;必须人工确认什么：&#10;异常升级给谁：&#10;回退到哪个原流程：</textarea
+        >
+      </details>
+      <section class="page-cta">
+        <h2>先把边界写清楚，再讨论能力。</h2>
+        <p>带着现有流程与资料条件来，我们先判断适合怎样收窄试点范围。</p>
+        <a
+          class="button light"
+          href="https://work.weixin.qq.com/kfid/kfccff6a6edfbee73bc"
+          >发起场景沟通 <span>→</span></a
+        >
+      </section>
+      <nav class="page-footer-links" aria-label="延伸阅读">
+        <a href="/resources/ai-agent-human-review-governance/"
+          >Agent 人工审核与执行门禁</a
+        ><a href="/resources/enterprise-knowledge-base-governance/"
+          >企业知识库建设标准</a
+        ><a href="/resources/enterprise-ai-pilot-checklist/"
+          >企业 AI 试点检查清单</a
+        ><a href="/resources/">资源中心</a>
+      </nav>
+      <section class="page-section faq-list">
+        <h2>常见问题</h2>
+        <details><summary>企业 AI 试点可以直接上传内部资料吗？</summary><p>不能默认可以。先确认资料所有者、敏感等级、授权范围、保留期限和可访问人员；不清楚时只使用已授权的低敏样本。</p></details>
+        <details><summary>AI 能否直接发消息、改订单或提交审批？</summary><p>首个试点应优先让 AI 准备草稿、检索依据和提示异常；对外发送、付款、订单变更、审批和正式发布应保留明确的人为确认。</p></details>
+      </section>
+    </main>
+    <footer>
+      <a class="brand" href="/"
+        ><span class="brand-mark">K</span><span>昆仑增长</span></a
+      >
+      <p>企业 AI 培训与落地</p>
+      <p>© 2026 Kunlun Growth</p>
+    </footer>
+  </body>
+</html>
