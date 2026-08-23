@@ -1,5 +1,6 @@
 import rawTutorials from "@/data/tutorials.json";
 import { newTutorials } from "@/data/new-tutorials";
+import { expansionTutorials } from "@/data/expansion-tutorials";
 
 type LegacySource = [string, string];
 export type TutorialBlock =
@@ -29,7 +30,7 @@ export type Tutorial = {
 
 // Legacy tutorial JSON is imported from the original static site. Its arrays are
 // structurally validated by rendering code, so cross the JSON boundary explicitly.
-const data = { ...rawTutorials, ...newTutorials } as unknown as Record<string, Tutorial>;
+const data = { ...rawTutorials, ...newTutorials, ...expansionTutorials } as unknown as Record<string, Tutorial>;
 
 export const tutorialEntries = Object.entries(data).map(([slug, tutorial]) => ({ slug, ...tutorial }));
 
@@ -44,7 +45,7 @@ export function sourceAuthor(url: string) {
       const handle = parsed.pathname.split("/").filter(Boolean)[0];
       return handle ? `@${handle}` : "X 原帖作者";
     }
-    if (parsed.hostname.includes("supabase.com") || parsed.hostname.includes("openai.com") || parsed.hostname.includes("shopify.com") || parsed.hostname.includes("amazon.com")) return "官方文档";
+    if (parsed.hostname.includes("supabase.com") || parsed.hostname.includes("openai.com") || parsed.hostname.includes("shopify.com") || parsed.hostname.includes("amazon.com") || parsed.hostname.includes("google.com") || parsed.hostname.includes("europa.eu")) return "官方文档";
     return parsed.hostname.replace(/^www\./, "");
   } catch {
     return "来源待核验";
@@ -52,7 +53,7 @@ export function sourceAuthor(url: string) {
 }
 
 export function categoryFor(slug: string) {
-  if (slug.includes("ecom") || slug.includes("shopify") || slug.includes("amazon") || slug.includes("ugc") || slug.includes("store") || slug.includes("health") || slug.includes("agentic") || slug.includes("product") || slug.includes("tiktok")) return "跨境电商";
+  if (slug.includes("ecom") || slug.includes("shopify") || slug.includes("amazon") || slug.includes("ugc") || slug.includes("store") || slug.includes("health") || slug.includes("agentic") || slug.includes("product") || slug.includes("tiktok") || slug.includes("merchant") || slug.includes("klaviyo") || slug.includes("returns") || slug.includes("inventory") || slug.includes("chargeback") || slug.includes("commerce") || slug.includes("creative") || slug.includes("pinterest") || slug.includes("meta") || slug.includes("hs-code") || slug.includes("gpsr") || slug.includes("support-knowledge")) return "跨境电商";
   if (slug.includes("video") || slug.includes("tts") || slug.includes("character")) return "创作";
   if (slug.includes("rag") || slug.includes("document") || slug.includes("csv")) return "数据与知识";
   if (slug.includes("agent") || slug.includes("n8n") || slug.includes("codex")) return "Agent 自动化";

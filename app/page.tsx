@@ -4,8 +4,10 @@ import { SiteHeader } from "@/components/site-header";
 import { TutorialCard } from "@/components/tutorial-card";
 import { tutorialEntries } from "@/lib/tutorials";
 
-const ecommerce = tutorialEntries.filter((item) => ["pmax-creative-experiment", "shopify-sidekick-review", "review-insight-faq", "ai-shopping-discoverability", "crossborder-localization-qc", "ai-support-escalation-desk", "agentic-product-data", "ai-product-visual-brief", "tiktok-gmvmax-creative-loop", "ecom-3d-ad", "shopify-agentic", "ugc-variants", "amazon-ai-listing", "ugc-factory", "human-loop-store"].includes(item.slug));
-const latest = tutorialEntries.slice(0, 6);
+const ecommerce = ["merchant-center-disapproval-triage", "tiktok-affiliate-creator-ops", "klaviyo-lifecycle-map"]
+  .map((slug) => tutorialEntries.find((item) => item.slug === slug))
+  .filter((item): item is (typeof tutorialEntries)[number] => Boolean(item));
+const latest = tutorialEntries.slice(-6).reverse();
 
 export default function HomePage() {
   return <><SiteHeader /><main>
