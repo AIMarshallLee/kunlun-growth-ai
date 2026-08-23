@@ -12,6 +12,7 @@ export function SiteHeader() {
   const { user, loading, signOut } = useAuth();
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null);
   const [displayName, setDisplayName] = useState<string>("");
+  const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
     if (!user) return;
@@ -33,6 +34,17 @@ export function SiteHeader() {
     })();
   }, [user]);
 
+  useEffect(() => {
+    if (!menuOpen) return;
+
+    function handleEscape(event: KeyboardEvent) {
+      if (event.key === "Escape") setMenuOpen(false);
+    }
+
+    window.addEventListener("keydown", handleEscape);
+    return () => window.removeEventListener("keydown", handleEscape);
+  }, [menuOpen]);
+
   const initial = (displayName || user?.email || "U")[0].toUpperCase();
 
   return (
@@ -42,7 +54,7 @@ export function SiteHeader() {
         <nav aria-label="主导航">
           <Link href="/tutorials">实战教程</Link>
           <Link href="/works">作品广场</Link>
-          <Link href="/projects">AI 项目</Link>
+          <Link href="/projects">项目验证</Link>
           <Link href="/challenges">企业挑战</Link>
         </nav>
         <div className="header-actions">
@@ -114,7 +126,40 @@ export function SiteHeader() {
           <Link className="button small" href="/submit">
             提交作品
           </Link>
+          <button
+            type="button"
+            className="menu-toggle"
+            aria-expanded={menuOpen}
+            aria-controls="mobile-navigation"
+            aria-label={menuOpen ? "关闭导航" : "打开导航"}
+            onClick={() => setMenuOpen((open) => !open)}
+          >
+            {menuOpen ? (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            ) : (
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            )}
+          </button>
         </div>
+        <nav
+          id="mobile-navigation"
+          className={`mobile-nav${menuOpen ? " open" : ""}`}
+          aria-label="移动端导航"
+          aria-hidden={!menuOpen}
+        >
+          <Link href="/tutorials" onClick={() => setMenuOpen(false)}>实战教程</Link>
+          <Link href="/works" onClick={() => setMenuOpen(false)}>作品广场</Link>
+          <Link href="/projects" onClick={() => setMenuOpen(false)}>项目验证</Link>
+          <Link href="/challenges" onClick={() => setMenuOpen(false)}>企业挑战</Link>
+          <Link href={user ? "/account/dashboard" : "/login"} onClick={() => setMenuOpen(false)}>
+            {user ? "个人中心" : "登录"}
+          </Link>
+          <Link href="/submit" onClick={() => setMenuOpen(false)}>提交作品意向</Link>
+        </nav>
       </div>
     </header>
   );

@@ -1,23 +1,21 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 import "./forms.css";
 import "./tutorial.css";
+import "./site-refresh.css";
 import { AuthProvider } from "@/components/auth-provider";
 import { createClient } from "@/lib/supabase/server";
-
-const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
 const siteUrl = "https://kunlun-growth-ai.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "昆仑增长AI实战｜从教程到真实应用",
+    default: "昆仑增长AI实战｜可照着完成的 AI 教程",
     template: "%s | 昆仑增长AI实战",
   },
   description:
-    "面向全球中文用户的 AI 实战、作品与真实应用验证平台。首个赛道：AI × 跨境电商。21 篇带提示词、通关标准和风险提醒的实战教程。",
+    "21 篇可以照着完成的 AI 实战教程，每篇包含来源、明确目标、操作步骤、通关标准和风险提醒。",
   keywords: [
     "AI实战", "AI教程", "跨境电商AI", "Agent自动化",
     "Next.js", "Supabase", "开源", "中文AI社区",
@@ -28,15 +26,15 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: "昆仑增长AI实战",
     locale: "zh_CN",
-    title: "昆仑增长AI实战｜从教程到真实应用",
+    title: "昆仑增长AI实战｜可照着完成的 AI 教程",
     description:
-      "面向全球中文用户的 AI 实战、作品与真实应用验证平台。首个赛道：AI × 跨境电商。",
+      "21 篇带来源、操作步骤和通关标准的 AI 实战教程。首个专题：AI × 跨境电商。",
   },
   twitter: {
     card: "summary_large_image",
     title: "昆仑增长AI实战",
     description:
-      "面向全球中文用户的 AI 实战、作品与真实应用验证平台。",
+      "选一个 AI 任务，照着步骤做，用通关标准检查结果。",
   },
   alternates: {
     canonical: "/",

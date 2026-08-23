@@ -26,26 +26,32 @@ export default function ProfilePage() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setFetching(false);
+      return;
+    }
+    setFetching(true);
+    let cancelled = false;
+
     (async () => {
-      const supabase = createClient();
-      const { data, error } = await supabase
-        .from("profiles")
-        .select("display_name, bio, avatar_url")
-        .eq("id", user.id)
-        .maybeSingle();
+      try {
+        const supabase = createClient();
+        const { data, error } = await supabase
+          .from("profiles")
+          .select("display_name, bio, avatar_url")
+          .eq("id", user.id)
+          .maybeSingle();
 
-      if (error) {
-        setFetching(false);
-        return;
-      }
+        if (cancelled || error) return;
 
-      if (data) {
-        setProfile(data);
-        setDisplayName(data.display_name || "");
-        setBio(data.bio || "");
-        setAvatarUrl(data.avatar_url);
-      } else {
+        if (data) {
+          setProfile(data);
+          setDisplayName(data.display_name || "");
+          setBio(data.bio || "");
+          setAvatarUrl(data.avatar_url);
+          return;
+        }
+
         // 老用户没有 profile 行，创建一个
         const defaultName = user.email ? user.email.split("@")[0] : "用户";
         const { data: created } = await supabase
@@ -53,6 +59,8 @@ export default function ProfilePage() {
           .upsert({ id: user.id, display_name: defaultName })
           .select("display_name, bio, avatar_url")
           .maybeSingle();
+
+        if (cancelled) return;
         if (created) {
           setProfile(created);
           setDisplayName(created.display_name || "");
@@ -62,10 +70,17 @@ export default function ProfilePage() {
           setProfile({ display_name: defaultName, bio: "", avatar_url: null });
           setDisplayName(defaultName);
         }
+      } catch {
+        // 请求失败时结束加载，保留当前表单状态。
+      } finally {
+        if (!cancelled) setFetching(false);
       }
-      setFetching(false);
     })();
-  }, [user?.id]);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
 
   async function handleAvatarUpload(e: React.ChangeEvent<HTMLInputElement>) {
     const file = e.target.files?.[0];

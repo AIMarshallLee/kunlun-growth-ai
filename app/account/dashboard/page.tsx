@@ -86,44 +86,59 @@ export default function DashboardPage() {
   const [fetching, setFetching] = useState(true);
 
   useEffect(() => {
-    if (!user) return;
+    if (!user) {
+      setFetching(false);
+      return;
+    }
+    setFetching(true);
     const supabase = createClient();
+    let cancelled = false;
 
     (async () => {
-      // 并行拉取所有数据
-      const [profileRes, progressRes, submissionsRes, loginsRes] =
-        await Promise.all([
-          supabase
-            .from("profiles")
-            .select("display_name, avatar_url")
-            .eq("id", user.id)
-            .maybeSingle(),
-          supabase
-            .from("learning_progress")
-            .select("tutorial_slug, completed_steps, updated_at")
-            .eq("user_id", user.id)
-            .order("updated_at", { ascending: false }),
-          supabase
-            .from("submissions")
-            .select("id, kind, title, status, visibility, created_at")
-            .eq("owner_id", user.id)
-            .order("created_at", { ascending: false })
-            .limit(10),
-          supabase
-            .from("login_events")
-            .select("id, login_method, device_type, created_at")
-            .eq("user_id", user.id)
-            .order("created_at", { ascending: false })
-            .limit(5),
-        ]);
+      try {
+        // 并行拉取所有数据
+        const [profileRes, progressRes, submissionsRes, loginsRes] =
+          await Promise.all([
+            supabase
+              .from("profiles")
+              .select("display_name, avatar_url")
+              .eq("id", user.id)
+              .maybeSingle(),
+            supabase
+              .from("learning_progress")
+              .select("tutorial_slug, completed_steps, updated_at")
+              .eq("user_id", user.id)
+              .order("updated_at", { ascending: false }),
+            supabase
+              .from("submissions")
+              .select("id, kind, title, status, visibility, created_at")
+              .eq("owner_id", user.id)
+              .order("created_at", { ascending: false })
+              .limit(10),
+            supabase
+              .from("login_events")
+              .select("id, login_method, device_type, created_at")
+              .eq("user_id", user.id)
+              .order("created_at", { ascending: false })
+              .limit(5),
+          ]);
 
-      if (profileRes.data) setProfile(profileRes.data);
-      if (progressRes.data) setProgress(progressRes.data as ProgressItem[]);
-      if (submissionsRes.data) setSubmissions(submissionsRes.data as Submission[]);
-      if (loginsRes.data) setRecentLogins(loginsRes.data as LoginEvent[]);
-      setFetching(false);
+        if (cancelled) return;
+        if (profileRes.data) setProfile(profileRes.data);
+        if (progressRes.data) setProgress(progressRes.data as ProgressItem[]);
+        if (submissionsRes.data) setSubmissions(submissionsRes.data as Submission[]);
+        if (loginsRes.data) setRecentLogins(loginsRes.data as LoginEvent[]);
+      } catch {
+        // 请求失败时保留空状态，避免页面永久卡在加载中。
+      } finally {
+        if (!cancelled) setFetching(false);
+      }
     })();
-  }, [user?.id]);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
 
   if (loading || fetching) {
     return <p className="form-message">加载中…</p>;

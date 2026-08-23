@@ -54,6 +54,9 @@ export default function SecurityPage() {
       setFetching(false);
       return;
     }
+    setFetching(true);
+    let cancelled = false;
+
     (async () => {
       try {
         const { data, error } = await createClient()
@@ -62,13 +65,18 @@ export default function SecurityPage() {
           .eq("user_id", user.id)
           .order("created_at", { ascending: false })
           .limit(50);
-        if (!error && data) setEvents(data as LoginEvent[]);
+        if (!cancelled && !error && data) setEvents(data as LoginEvent[]);
       } catch {
         // 静默处理
+      } finally {
+        if (!cancelled) setFetching(false);
       }
-      setFetching(false);
     })();
-  }, [user?.id]);
+
+    return () => {
+      cancelled = true;
+    };
+  }, [user]);
 
   if (loading) {
     return <p className="form-message">加载中…</p>;
