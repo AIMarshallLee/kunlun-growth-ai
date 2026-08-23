@@ -142,5 +142,77 @@ export const newTutorials = {
     ],
     faq: [["AI 回复错了怎么办", "源资料缺失或客服未审核", "立即更正客户、更新事实源并复盘意图"], ["能让 AI 自动退款吗", "退款涉及资金和例外判断", "保留给有权限的人工审批"], ["客户要求查订单", "需要访问个人订单信息", "在受控客服系统中由授权人员处理"], ["英文草稿能直接发吗", "语气和事实可能不适配市场", "由客服检查语言与订单上下文后发送"]],
     sources: [["X：AI 购物渠道与商家信息治理讨论", "https://x.com/seki82214232/status/2037747367735349744"], ["Shopify Inbox：AI-generated suggested replies", "https://help.shopify.com/en/manual/inbox/chat-settings-and-appearance/shopify-magic"], ["Shopify Inbox：Managing customer conversations", "https://help.shopify.com/en/manual/inbox/conversations?rd=1"], ["Shopify Inbox：Quick replies", "https://help.shopify.com/en/manual/inbox/configure-inbox/quick-replies"]]
+  },
+  "pmax-creative-experiment": {
+    short: "PMax AI 素材实验台",
+    eyebrow: "X 商品级投放讨论 · Google Ads 官方实验文档",
+    titleHtml: "把 AI 素材变体放进<em>可解释的实验</em>",
+    sub: "用 AI 辅助生成经审核的图片、文字或视频变体，再以一个明确假设进行 PMax 素材实验；不以截图或单日数据宣称增长。",
+    chips: ["⏱ 约 <b>45 分钟</b>", "🧩 4 个步骤", "📊 Google Ads PMax", "🔒 不擅自改预算"],
+    introIcon: "🧪",
+    introTitle: "先学到一件事，再扩大量。",
+    intro: "创意可以批量产生，学习不能。实验需要固定其他条件、保留对照组，并由账户负责人决定是否应用结果。",
+    goalLead: "为一个可用的商品 feed 广告活动创建一份素材实验计划，而非直接启动大量变体。",
+    goal: "完成 experiment-brief.md：假设、控制变量、素材清单、审核记录、结束条件和结果模板。",
+    outcomes: [["一个实验假设", "清楚定义要验证的素材变化。"], ["一组可追溯素材", "每份资产有事实和授权记录。"], ["一份结果模板", "结论不依赖孤立的漂亮数字。"]],
+    criteria: ["一次只验证一个主要变化", "原始素材与商品事实一致", "广告政策与授权已审核", "实验期间不随意改设置", "结论注明数据是否充分", "预算和应用由账户负责人确认"],
+    module: "让 AI 创意进入可复盘的测试框架",
+    moduleSub: "先写假设，再生成少量可比变体；实验结束后由人决定应用或结束。",
+    steps: [
+      { title: "选定一个业务问题", time: "8 分钟", target: "不要从“多做点素材”开始", blocks: [{ type: "list", items: ["选择一个商品组和一个明确漏斗阶段", "写下当前基线和可观察的问题", "固定主目标和观察窗口", "确定本轮唯一主要变量：例如是否加入已审核视频"] }], done: "假设可以写成“若加入 X，Y 会如何变化”，且未承诺结果。" },
+      { title: "制作可审核的 AI 素材变体", time: "12 分钟", target: "素材只表达真实商品事实", blocks: [{ type: "prompt", label: "素材简报提示词", text: "基于以下已批准商品资料，生成 3 个广告素材简报。每个简报只改变 [镜头/文字结构/节奏] 这一变量，保留相同商品、受众承诺和 CTA。列出事实来源、禁止主张、所需授权和人工审核点。不要写保证收益、虚假折扣、虚假评价或未经证实的功效。" }, { type: "note", kind: "warn", icon: "⚠️", label: "先审后传", text: "AI 产物是待审素材，不等于可投放广告。" }], done: "每个变体都有 asset_id、来源、变量和审核状态。" },
+      { title: "建立对照与实验记录", time: "15 分钟", target: "不让多项改动污染结论", blocks: [{ type: "code", label: "实验记录字段", text: "experiment_id | hypothesis | control | treatment | primary_metric | guardrail | start | end | owner | decision" }, { type: "list", items: ["确认活动资格与可用 feed", "在广告平台的 Experiments 中创建相应素材测试", "实验开始后不同时更改预算、出价、落地页或其他素材设置", "记录何时数据不足、何时结束，以及谁有权应用结果"] }], done: "对照和处理组的差异只剩本轮要测试的素材变量。" },
+      { title: "读取结果并人工决定", time: "10 分钟", target: "把结果变成下一轮学习", blocks: [{ type: "prompt", label: "复盘提示词", text: "根据实验报告，按以下格式写复盘：假设、控制与处理、数据是否足够、主指标、护栏指标、可能混杂因素、可复用发现、下一步。若结果不具结论性，明确写“不作应用决定”。不要把相关性写成因果或收益保证。" }, { type: "note", kind: "ok", icon: "✅", label: "验收", text: "账户负责人决定应用、结束或重测；保存报告链接和决策理由。" }], done: "结果被记录为证据，不被包装为必然增长案例。" }
+    ],
+    faq: [["能一次测试十个 AI 视频吗", "变量过多会难以解释", "先做一项主要变化的实验"], ["实验几天就能判定吗", "数据可能还不充分", "按平台报告和预先设定的结束条件判断"], ["AI 能自动应用胜出版本吗", "预算和品牌风险需要责任人判断", "由账户负责人手动决定"], ["结果不显著怎么办", "这也是有效学习", "记录并改进下一个假设，不追逐漂亮截图"]],
+    sources: [["X：商品级投放与再营销案例讨论", "https://x.com/bony_ghadiya_/status/2036872740259459344"], ["Google Ads：PMax asset testing", "https://support.google.com/google-ads/answer/16030588?hl=en"], ["Google Ads：Test with confidence", "https://support.google.com/google-ads/answer/7281575?hl=en"]]
+  },
+  "shopify-sidekick-review": {
+    short: "Shopify Sidekick 周度运营复盘",
+    eyebrow: "X Shopify Sidekick 动态 · Shopify 官方文档",
+    titleHtml: "让 Sidekick 提建议，<em>让经营者做决定</em>",
+    sub: "将店铺数据、异常和待办整理成每周复盘问题，让 Sidekick 生成可核对的建议；涉及商品、订单、库存或设置变更时，统一由人复核后应用。",
+    chips: ["⏱ 约 <b>30 分钟</b>", "🧩 4 个步骤", "🛍 Shopify Admin", "🔒 变更先审核"],
+    introIcon: "🗂️",
+    introTitle: "AI 可以提问，经营者必须拍板。",
+    intro: "店铺助手能在商店上下文里分析和建议，但建议不是经营结论。把它放进固定复盘流程，才能防止一时冲动改动线上设置。",
+    goalLead: "完成一份每周运营复盘卡：事实、异常、候选动作、风险和负责人。",
+    goal: "为一个 Shopify 店铺建立 weekly-review.md，并留下所有建议的证据与人工决定。",
+    outcomes: [["复盘问题集", "每周用同一套问题审视店铺。"], ["建议台账", "AI 建议与真实数据分开记录。"], ["审批门", "没有负责人确认不执行改动。"]],
+    criteria: ["先查看数据再要建议", "建议引用可核验的店铺事实", "订单、库存、价格与设置变更人工确认", "不粘贴不必要的客户隐私", "异常标记为待调查", "每次决策有负责人"],
+    module: "把店铺助手纳入稳定的经营节奏",
+    moduleSub: "先收集事实，再请求建议；最后用审批台账把“建议”与“变更”隔开。",
+    steps: [
+      { title: "准备周度事实快照", time: "8 分钟", target: "避免让 AI 凭印象总结", blocks: [{ type: "list", items: ["本周销售、订单、退款与库存异常摘要", "流量与商品页变化说明", "客服高频问题与物流异常", "本周已做变更及负责人"] }], done: "快照只含必要的汇总信息，不含客户敏感数据。" },
+      { title: "提出受限的复盘问题", time: "8 分钟", target: "让建议有可检查边界", blocks: [{ type: "prompt", label: "Sidekick 问法", text: "基于以下店铺快照，列出：1) 需要调查的异常；2) 可由负责人验证的三项机会；3) 每项所需证据；4) 可能风险；5) 不应自动执行的变更。不要修改商品、库存、订单、价格或设置；不要推断缺失数据。" }], done: "每条建议都附有待验证证据，而不是直接操作命令。" },
+      { title: "建立人工决策台账", time: "7 分钟", target: "建议不等于批准", blocks: [{ type: "code", label: "台账字段", text: "week | observation | evidence | suggested_action | risk | owner | approve/reject | follow_up" }, { type: "note", kind: "danger", icon: "🛑", label: "权限", text: "任何会影响库存、价格、订单、退款或店铺配置的动作，必须由有权限的真人审核。" }], done: "每一项候选动作都有 owner 与明确的批准状态。" },
+      { title: "执行最小动作并回查", time: "7 分钟", target: "把复盘变成可学习的循环", blocks: [{ type: "list", items: ["只执行已批准、可回滚或低风险的最小变更", "记录执行前后事实与日期", "下周复盘中检查预期与实际差异", "把无效建议归入拒绝原因库"] }, { type: "note", kind: "ok", icon: "✅", label: "验收", text: "本周复盘结束时，所有建议均有批准、拒绝或待调查状态。" }], done: "店铺的真实变更和 AI 建议可以一一对应。" }
+    ],
+    faq: [["能让 Sidekick 直接改库存吗", "库存会影响履约与客户承诺", "先查看拟议变更，再由负责人确认"], ["建议和数据矛盾怎么办", "建议可能误解上下文", "以原始数据为准并标记待调查"], ["客户数据能粘贴进去吗", "可能超出复盘所需范围", "使用匿名汇总，按权限在店铺系统中处理细节"], ["每周没有异常还要复盘吗", "稳定期同样需要记录基线", "做简短快照，为后续变化留下对照"]],
+    sources: [["X：Shopify Sidekick 产品动态", "https://x.com/Shopify/status/1998783660065988888"], ["Shopify：Sidekick", "https://help.shopify.com/en/manual/ai-powered-tools/sidekick"]]
+  },
+  "review-insight-faq": {
+    short: "真实评论到商品 FAQ",
+    eyebrow: "X AI 搜索可发现性讨论 · Shopify 评论规则",
+    titleHtml: "从真实评论提炼<em>可验证的 FAQ</em>",
+    sub: "用 AI 汇总自有、允许使用的真实评论，找出重复问题与表述缺口，再由商品负责人更新 FAQ；不生成评价、不改写客户意思，也不把情绪当作产品事实。",
+    chips: ["⏱ 约 <b>35 分钟</b>", "🧩 4 个步骤", "⭐ 评论 / FAQ", "🔒 不伪造口碑"],
+    introIcon: "⭐",
+    introTitle: "评论是信号，不是文案矿场。",
+    intro: "客户评论能暴露尺码、交付、使用与期待之间的差距。最有价值的动作通常不是生成更多好评，而是把可证实的问题讲清楚。",
+    goalLead: "把一份已授权评论导出整理成主题表，并提交最多 5 条待审核 FAQ。",
+    goal: "完成 review-to-faq.md：评论范围、主题、证据摘录、拟议 FAQ、事实核验和发布决定。",
+    outcomes: [["主题地图", "识别重复疑问与潜在误解。"], ["FAQ 草稿", "每条回答都有商品或政策依据。"], ["改进台账", "区分要补页面、补物流还是补产品。"]],
+    criteria: ["只使用自有且允许分析的评论", "不识别或暴露个人信息", "保留原评论语义与范围", "FAQ 只写有证据的内容", "不伪造评分或见证", "发布由商品负责人审核"],
+    module: "从客户反馈回到可验证的信息",
+    moduleSub: "先去标识化和分类，再用事实核验每个 FAQ；评论原文与营销承诺不能混为一谈。",
+    steps: [
+      { title: "导出并去标识化评论", time: "8 分钟", target: "只处理有权使用的反馈", blocks: [{ type: "list", items: ["确认评论来源、使用权限与时间范围", "删除姓名、邮箱、订单号和其他个人信息", "保留产品、市场、日期与评论文本等最小必要字段", "排除明显无关、辱骂或敏感信息"] }], done: "待分析文本不含不必要的客户个人数据。" },
+      { title: "让 AI 归纳主题，不下结论", time: "10 分钟", target: "区分反馈与事实", blocks: [{ type: "prompt", label: "主题归纳提示词", text: "分析以下去标识化客户评论。按主题归类：尺寸、材质、使用、配送、退换、包装、期望差异和其他。每个主题给出出现次数、代表性摘录和不确定性。不要创造评论、推断产品性能、计算虚假评分或把个别体验写成普遍事实。" }], done: "每个主题能回到真实评论摘录，且没有被改写成营销承诺。" },
+      { title: "把主题转成可核验 FAQ", time: "10 分钟", target: "回答以商品与政策为准", blocks: [{ type: "prompt", label: "FAQ 草稿提示词", text: "根据主题表和以下商品资料/政策，起草最多 5 条 FAQ。每条分为：客户常问什么、可证实的回答、来源链接、不能承诺的内容、需要人工确认的内容。若资料无法回答，写“需补资料”，不要猜测。" }, { type: "note", kind: "warn", icon: "⚠️", label: "不要洗白", text: "负面反馈应触发调查或澄清，不能靠改写成“卖点”来消除。" }], done: "每条 FAQ 的每句事实都能链接到商品、配送或政策来源。" },
+      { title: "审核、发布与回看", time: "7 分钟", target: "让 FAQ 减少信息缺口", blocks: [{ type: "list", items: ["商品负责人审核事实，客服审核可理解性", "必要时由物流或合规负责人审核政策说明", "发布前确认没有引用客户身份或伪造见证", "下月重新查看相同主题是否减少或出现新问题"] }, { type: "note", kind: "ok", icon: "✅", label: "验收", text: "每条上线 FAQ 都有审核人、资料来源和复核日期。" }], done: "FAQ 是可验证的信息补充，而不是包装出来的客户评价。" }
+    ],
+    faq: [["能把评论改写成广告见证吗", "可能失去原意或缺少授权", "仅按合规流程使用真实评论，不让 AI 编写见证"], ["只有几条评论能分析吗", "样本太小容易误判", "标记为探索性观察，不据此下普遍结论"], ["负面评论要删除吗", "可能反映真实信息缺口", "核实问题、更新说明或产品流程"], ["AI 说某问题很常见", "模型只能根据输入文本归纳", "核对实际数量与评论范围"]],
+    sources: [["X：商品评论与 AI 可发现性讨论", "https://x.com/seosmarty/status/2034308409214787853"], ["Shopify：Shop product reviews", "https://help.shopify.com/en/manual/online-sales-channels/shop/product-reviews"]]
   }
 } as const;
