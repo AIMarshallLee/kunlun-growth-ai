@@ -1,0 +1,955 @@
+.page {
+  --ea-ink: #18231c;
+  --ea-muted: #626b62;
+  --ea-paper: #f1ede3;
+  --ea-surface: #fffdf7;
+  --ea-line: #bbb5a8;
+  --ea-accent: #d74c2f;
+  --ea-forest: #20352a;
+  --ea-lime: #dbe89c;
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(24, 35, 28, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(24, 35, 28, 0.035) 1px, transparent 1px),
+    var(--ea-paper);
+  background-size: 34px 34px;
+  color: var(--ea-ink);
+  font-family: "Avenir Next", Avenir, "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+
+.page * {
+  box-sizing: border-box;
+}
+
+.page a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.page h1,
+.page h2,
+.page h3 {
+  font-family: "Songti SC", STSong, "Noto Serif CJK SC", Georgia, serif;
+}
+
+.page :focus-visible {
+  outline: 3px solid var(--ea-accent);
+  outline-offset: 4px;
+}
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  min-height: 78px;
+  align-items: center;
+  gap: 30px;
+  padding: 12px max(24px, calc((100vw - 1180px) / 2));
+  border-bottom: 1px solid var(--ea-line);
+  background: color-mix(in srgb, var(--ea-paper) 92%, transparent);
+  backdrop-filter: blur(18px);
+}
+
+.identity {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: -0.025em;
+}
+
+.identity small {
+  display: block;
+  margin-top: 1px;
+  color: var(--ea-accent);
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.seal {
+  display: grid;
+  width: 39px;
+  height: 39px;
+  place-items: center;
+  border: 1px solid var(--ea-ink);
+  background: var(--ea-ink);
+  box-shadow: 4px 4px 0 var(--ea-accent);
+  color: var(--ea-surface);
+  font-family: "Songti SC", STSong, serif;
+  font-size: 19px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-left: auto;
+  color: var(--ea-muted);
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.nav a:hover {
+  color: var(--ea-accent);
+}
+
+.navContact {
+  padding: 9px 13px;
+  border: 1px solid var(--ea-ink);
+  background: var(--ea-ink);
+  color: var(--ea-surface) !important;
+}
+
+.hero {
+  display: grid;
+  max-width: 1180px;
+  min-height: 690px;
+  align-items: center;
+  grid-template-columns: minmax(0, 1.16fr) minmax(360px, 0.72fr);
+  gap: 78px;
+  margin: 0 auto;
+  padding: 84px 24px;
+}
+
+.eyebrow,
+.sectionIndex {
+  margin: 0;
+  color: var(--ea-accent);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.17em;
+}
+
+.hero h1 {
+  max-width: 820px;
+  margin: 25px 0 24px;
+  font-size: clamp(54px, 6.2vw, 88px);
+  font-weight: 700;
+  line-height: 1.03;
+  letter-spacing: -0.06em;
+}
+
+.hero h1 em {
+  display: block;
+  color: var(--ea-accent);
+  font-style: normal;
+}
+
+.lead {
+  max-width: 720px;
+  margin: 0;
+  color: var(--ea-muted);
+  font-size: 18px;
+  line-height: 1.85;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  min-height: 47px;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 18px;
+  border: 1px solid var(--ea-ink);
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.primaryButton {
+  background: var(--ea-ink);
+  box-shadow: 5px 5px 0 var(--ea-accent);
+  color: var(--ea-surface) !important;
+}
+
+.primaryButton:hover {
+  background: var(--ea-accent);
+  box-shadow: 2px 2px 0 var(--ea-ink);
+  transform: translate(3px, 3px);
+}
+
+.secondaryButton {
+  border-color: var(--ea-line);
+  background: var(--ea-surface);
+}
+
+.secondaryButton:hover {
+  border-color: var(--ea-ink);
+}
+
+.safetyNote {
+  margin: 19px 0 0;
+  color: var(--ea-muted);
+  font-size: 11px;
+}
+
+.safetyNote::before {
+  margin-right: 7px;
+  color: #417654;
+  content: "●";
+}
+
+.identityCard {
+  position: relative;
+  padding: 29px;
+  border: 1px solid var(--ea-ink);
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    var(--ea-forest);
+  background-size: 100% 28px;
+  box-shadow: 12px 12px 0 var(--ea-accent);
+  color: #f4f1e7;
+  transform: rotate(1deg);
+}
+
+.cardTopline {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+  color: var(--ea-lime);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+}
+
+.cardLabel {
+  margin: 30px 0 4px;
+  color: rgba(244, 241, 231, 0.6);
+  font-size: 10px;
+}
+
+.identityCard h2 {
+  margin: 0 0 25px;
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.identityCard dl {
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.identityCard dl > div {
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.24);
+}
+
+.identityCard dt {
+  color: rgba(244, 241, 231, 0.55);
+  font-size: 10px;
+}
+
+.identityCard dd {
+  margin: 0;
+  font-size: 12px;
+  font-weight: 800;
+  word-break: break-word;
+}
+
+.identityCard dd a {
+  color: var(--ea-lime);
+}
+
+.legalNote {
+  margin: 22px 0 0;
+  color: rgba(244, 241, 231, 0.66);
+  font-size: 10px;
+  line-height: 1.7;
+}
+
+.principles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  background: var(--ea-forest);
+  color: #f4f1e7;
+}
+
+.principles > div {
+  display: flex;
+  min-height: 112px;
+  align-items: center;
+  gap: 16px;
+  padding: 26px max(22px, calc((100vw - 1180px) / 8));
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.principles b {
+  color: var(--ea-lime);
+  font-family: "Songti SC", STSong, serif;
+  font-size: 25px;
+}
+
+.principles span {
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.audience,
+.scenarioSection,
+.diagnosisSection,
+.boundaries,
+.contactSection,
+.footer {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding-right: 24px;
+  padding-left: 24px;
+}
+
+.audience {
+  display: grid;
+  grid-template-columns: 0.72fr 1.28fr;
+  gap: 100px;
+  padding-top: 112px;
+  padding-bottom: 112px;
+  border-bottom: 1px solid var(--ea-line);
+}
+
+.sectionIntro h2,
+.scenarioHeading h2,
+.diagnosisIntro h2,
+.boundaryHeading h2,
+.contactSection h2 {
+  margin: 14px 0 0;
+  font-size: clamp(38px, 4.3vw, 58px);
+  line-height: 1.1;
+  letter-spacing: -0.045em;
+}
+
+.audienceCopy > p {
+  margin: 0;
+  color: var(--ea-muted);
+  font-size: 20px;
+  line-height: 1.8;
+}
+
+.audienceCopy ul {
+  display: grid;
+  gap: 9px;
+  margin: 29px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.audienceCopy li {
+  padding: 12px 0 12px 30px;
+  border-bottom: 1px solid var(--ea-line);
+  font-size: 13px;
+  font-weight: 800;
+}
+
+.audienceCopy li::before {
+  display: inline-block;
+  width: 18px;
+  margin-left: -29px;
+  color: var(--ea-accent);
+  content: "◆";
+}
+
+.scenarioSection {
+  padding-top: 112px;
+  padding-bottom: 120px;
+}
+
+.scenarioHeading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 48px;
+  margin-bottom: 45px;
+}
+
+.scenarioHeading > p {
+  max-width: 360px;
+  margin: 0;
+  color: var(--ea-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.scenarioGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 17px;
+}
+
+.scenarioCard {
+  position: relative;
+  min-height: 440px;
+  padding: 27px;
+  overflow: hidden;
+  border: 1px solid var(--ea-line);
+  background: var(--ea-surface);
+}
+
+.scenarioCard::after {
+  position: absolute;
+  right: -42px;
+  bottom: -55px;
+  width: 140px;
+  height: 140px;
+  border: 1px solid color-mix(in srgb, var(--ea-accent) 45%, transparent);
+  border-radius: 50%;
+  content: "";
+}
+
+.scenarioNumber {
+  color: var(--ea-accent);
+  font-family: "Songti SC", STSong, serif;
+  font-size: 38px;
+}
+
+.exampleTag {
+  display: inline-flex;
+  margin: 0 0 0 12px;
+  padding: 4px 7px;
+  border: 1px solid var(--ea-line);
+  color: var(--ea-muted);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+}
+
+.scenarioCard h3 {
+  min-height: 68px;
+  margin: 27px 0 21px;
+  font-size: 27px;
+  line-height: 1.25;
+  letter-spacing: -0.035em;
+}
+
+.scenarioCard dl {
+  position: relative;
+  z-index: 1;
+  margin: 0;
+}
+
+.scenarioCard dl > div {
+  padding: 12px 0;
+  border-top: 1px solid var(--ea-line);
+}
+
+.scenarioCard dt {
+  margin-bottom: 5px;
+  color: var(--ea-accent);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+}
+
+.scenarioCard dd {
+  margin: 0;
+  color: var(--ea-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.diagnosisSection {
+  display: grid;
+  max-width: none;
+  grid-template-columns: minmax(0, 0.84fr) minmax(480px, 1.16fr);
+  gap: 90px;
+  padding-top: 112px;
+  padding-right: max(24px, calc((100vw - 1180px) / 2));
+  padding-bottom: 112px;
+  padding-left: max(24px, calc((100vw - 1180px) / 2));
+  background: var(--ea-forest);
+  color: #f4f1e7;
+}
+
+.diagnosisIntro .sectionIndex {
+  color: var(--ea-lime);
+}
+
+.diagnosisIntro > p:not(.sectionIndex) {
+  max-width: 500px;
+  color: rgba(244, 241, 231, 0.66);
+  line-height: 1.8;
+}
+
+.outputCard {
+  margin-top: 34px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.34);
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: 7px 7px 0 var(--ea-accent);
+}
+
+.outputCard span,
+.outputCard strong {
+  display: block;
+}
+
+.outputCard span {
+  color: var(--ea-lime);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.13em;
+}
+
+.outputCard strong {
+  margin-top: 8px;
+  font-family: "Songti SC", STSong, serif;
+  font-size: 27px;
+}
+
+.outputCard p {
+  margin: 7px 0 0;
+  color: rgba(244, 241, 231, 0.6);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.agenda {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.agenda li {
+  display: grid;
+  grid-template-columns: 78px 1fr;
+  gap: 22px;
+  padding: 19px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.agenda li:first-child {
+  border-top: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.minutes {
+  color: var(--ea-lime);
+  font-family: "Songti SC", STSong, serif;
+  font-size: 27px;
+  line-height: 1;
+}
+
+.minutes small {
+  display: block;
+  margin-top: 5px;
+  font-family: "Avenir Next", Avenir, sans-serif;
+  font-size: 8px;
+  letter-spacing: 0.1em;
+}
+
+.agenda strong {
+  font-family: "Songti SC", STSong, serif;
+  font-size: 19px;
+}
+
+.agenda p {
+  margin: 4px 0 0;
+  color: rgba(244, 241, 231, 0.62);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.boundaries {
+  padding-top: 112px;
+  padding-bottom: 112px;
+}
+
+.boundaryHeading {
+  max-width: 820px;
+}
+
+.boundaryGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 45px;
+}
+
+.doCard,
+.dontCard {
+  padding: 28px;
+  border: 1px solid var(--ea-line);
+}
+
+.doCard {
+  background: var(--ea-surface);
+}
+
+.dontCard {
+  background: #e8e2d6;
+}
+
+.doCard > span,
+.dontCard > span {
+  display: inline-flex;
+  padding: 5px 8px;
+  border: 1px solid currentColor;
+  color: #3d7350;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.09em;
+}
+
+.dontCard > span {
+  color: var(--ea-accent);
+}
+
+.doCard ul,
+.dontCard ul {
+  display: grid;
+  gap: 13px;
+  margin: 25px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.doCard li,
+.dontCard li {
+  position: relative;
+  padding: 0 0 13px 23px;
+  border-bottom: 1px solid var(--ea-line);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.doCard li::before,
+.dontCard li::before {
+  position: absolute;
+  left: 0;
+  color: #3d7350;
+  content: "✓";
+  font-weight: 900;
+}
+
+.dontCard li::before {
+  color: var(--ea-accent);
+  content: "×";
+}
+
+.pilotNote {
+  margin: 19px 0 0;
+  padding: 18px 20px;
+  border-left: 4px solid var(--ea-accent);
+  background: color-mix(in srgb, var(--ea-surface) 72%, transparent);
+  color: var(--ea-muted);
+  font-size: 11px;
+  line-height: 1.75;
+}
+
+.contactSection {
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 80px;
+  margin-bottom: 80px;
+  padding-top: 58px;
+  padding-bottom: 58px;
+  border: 1px solid var(--ea-ink);
+  background: var(--ea-surface);
+  box-shadow: 10px 10px 0 var(--ea-accent);
+}
+
+.contactSection h2 {
+  font-size: clamp(37px, 4vw, 52px);
+}
+
+.contactSection > div > p:not(.sectionIndex) {
+  max-width: 690px;
+  color: var(--ea-muted);
+  line-height: 1.75;
+}
+
+.contactActions {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contactButton {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  background: var(--ea-ink);
+  color: var(--ea-surface) !important;
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.contactButton:hover {
+  background: var(--ea-accent);
+}
+
+.emailLink {
+  color: var(--ea-accent) !important;
+  font-size: 12px;
+  font-weight: 900;
+}
+
+.footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 30px;
+  padding-top: 32px;
+  padding-bottom: 32px;
+  border-top: 1px solid var(--ea-line);
+  color: var(--ea-muted);
+  font-size: 11px;
+}
+
+.footer span,
+.footer small {
+  display: block;
+}
+
+.footer span {
+  color: var(--ea-ink);
+  font-weight: 900;
+}
+
+.footer small {
+  margin-top: 4px;
+}
+
+.footer > a {
+  border-bottom: 1px solid var(--ea-accent);
+  color: var(--ea-accent);
+  font-weight: 900;
+}
+
+:global([data-theme="dark"]) .page {
+  --ea-ink: #eef1e6;
+  --ea-muted: #a9b1a7;
+  --ea-paper: #111713;
+  --ea-surface: #19211b;
+  --ea-line: #475047;
+  --ea-accent: #ff7854;
+  --ea-forest: #0b110d;
+  --ea-lime: #c3d27f;
+}
+
+:global([data-theme="dark"]) .seal,
+:global([data-theme="dark"]) .navContact,
+:global([data-theme="dark"]) .primaryButton,
+:global([data-theme="dark"]) .contactButton {
+  color: #111713 !important;
+}
+
+:global([data-theme="dark"]) .dontCard {
+  background: #222b24;
+}
+
+@media (max-width: 900px) {
+  .nav > a:not(.navContact) {
+    display: none;
+  }
+
+  .hero,
+  .audience,
+  .diagnosisSection,
+  .contactSection {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    gap: 55px;
+  }
+
+  .identityCard {
+    max-width: 570px;
+  }
+
+  .principles {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .audience,
+  .diagnosisSection,
+  .contactSection {
+    gap: 48px;
+  }
+
+  .scenarioGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .scenarioCard {
+    min-height: 0;
+  }
+
+  .scenarioCard h3 {
+    min-height: 0;
+  }
+
+  .contactActions {
+    max-width: 440px;
+  }
+}
+
+@media (max-width: 620px) {
+  .topbar {
+    min-height: 70px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .identity small {
+    display: none;
+  }
+
+  .nav {
+    gap: 0;
+  }
+
+  .navContact {
+    padding: 8px 10px;
+    white-space: nowrap;
+  }
+
+  .hero {
+    min-height: 0;
+    padding: 65px 16px 74px;
+  }
+
+  .hero h1 {
+    font-size: clamp(43px, 14vw, 62px);
+  }
+
+  .lead {
+    font-size: 16px;
+  }
+
+  .heroActions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .identityCard {
+    padding: 24px;
+    box-shadow: 7px 7px 0 var(--ea-accent);
+    transform: none;
+  }
+
+  .identityCard h2 {
+    font-size: 36px;
+  }
+
+  .principles {
+    grid-template-columns: 1fr;
+  }
+
+  .principles > div {
+    min-height: 76px;
+    padding: 18px 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .audience,
+  .scenarioSection,
+  .boundaries,
+  .contactSection,
+  .footer {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .audience,
+  .scenarioSection,
+  .diagnosisSection,
+  .boundaries {
+    padding-top: 80px;
+    padding-bottom: 80px;
+  }
+
+  .scenarioHeading,
+  .footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .scenarioHeading h2,
+  .sectionIntro h2,
+  .diagnosisIntro h2,
+  .boundaryHeading h2,
+  .contactSection h2 {
+    font-size: 39px;
+  }
+
+  .scenarioCard {
+    padding: 23px;
+  }
+
+  .diagnosisSection {
+    min-width: 0;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .agenda li {
+    grid-template-columns: 64px 1fr;
+    gap: 15px;
+  }
+
+  .boundaryGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .doCard,
+  .dontCard {
+    padding: 22px;
+  }
+
+  .contactSection {
+    margin-right: 16px;
+    margin-bottom: 64px;
+    margin-left: 16px;
+    padding-top: 38px;
+    padding-bottom: 38px;
+    box-shadow: 6px 6px 0 var(--ea-accent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .page *,
+  .page *::before,
+  .page *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .topbar,
+  .heroActions,
+  .contactActions,
+  .footer > a {
+    display: none;
+  }
+
+  .page {
+    background: white;
+  }
+
+  .hero,
+  .audience,
+  .scenarioSection,
+  .diagnosisSection,
+  .boundaries,
+  .contactSection {
+    break-inside: avoid;
+  }
+}
