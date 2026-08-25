@@ -1,0 +1,136 @@
+.case-card {
+  min-height: 292px;
+}
+
+.case-filters button {
+  padding: 10px 15px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  cursor: pointer;
+}
+
+.case-filters button:hover,
+.case-filters button.active {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.case-disclosure {
+  margin-top: 22px;
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.76);
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.case-disclosure strong {
+  display: block;
+  color: var(--ink);
+}
+
+.case-section {
+  padding: 34px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: var(--paper);
+  box-shadow: var(--shadow-soft);
+}
+
+.case-section + .case-section {
+  margin-top: 22px;
+}
+
+.case-detail-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) minmax(280px, 0.7fr);
+  gap: 22px;
+}
+
+.case-detail-grid .case-section {
+  margin-top: 0;
+}
+
+.case-source {
+  display: block;
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 18px;
+  background: var(--tint);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.case-related-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 24px;
+}
+
+.opportunity-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(340px, 0.95fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.opportunity-form {
+  max-width: none;
+  margin-top: 0;
+}
+
+.opportunity-preview {
+  position: sticky;
+  top: 92px;
+  min-height: 520px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: #1f2924;
+  color: #f7f4ec;
+  box-shadow: var(--shadow);
+}
+
+.opportunity-preview pre {
+  margin: 20px 0 0;
+  white-space: pre-wrap;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.85;
+  color: inherit;
+}
+
+@media (max-width: 850px) {
+  .case-detail-grid,
+  .opportunity-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .case-related-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .opportunity-preview {
+    position: static;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .case-section,
+  .opportunity-preview {
+    padding: 22px;
+    border-radius: 20px;
+  }
+
+  .case-related-grid {
+    grid-template-columns: 1fr;
+  }
+}
