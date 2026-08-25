@@ -27,6 +27,7 @@ function pass(message) {
 function walk(dir) {
   const result = [];
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    if (entry.isDirectory() && entry.name === '.vercel') continue;
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) result.push(...walk(full));
     else if (entry.isFile() && entry.name.toLowerCase().endsWith('.html')) result.push(full);
