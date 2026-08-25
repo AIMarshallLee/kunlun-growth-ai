@@ -2,6 +2,9 @@ import { CaseLibrary } from "@/components/case-library";
 import { Footer } from "@/components/footer";
 import { SiteHeader } from "@/components/site-header";
 import { caseCategories, caseStudies } from "@/lib/cases";
+import { buildPageMetadata } from "@/lib/site-config";
+
+export const metadata = buildPageMetadata("/cases", "AI 落地案例库", "20 个保留来源、公开结果和适用边界的跨境 AI 落地案例。");
 
 export default function CasesPage() {
   return <><SiteHeader /><main className="page shell">

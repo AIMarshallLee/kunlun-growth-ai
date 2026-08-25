@@ -1,0 +1,145 @@
+[
+    {
+      "id": "sparse-facts-stay-not-ready",
+      "expectedStatus": "not_ready",
+      "reason": "Required publication facts and current channel evidence are missing, so unsupported adjacent claims stay blocked.",
+      "purpose": "Prevent category and material terms from becoming unsupported benefits, use cases, or specifications.",
+      "input": {
+        "sourceMarket": "China",
+        "targetMarket": "United States",
+        "targetLanguage": "English",
+        "targetChannel": "generic ecommerce marketplace draft",
+        "productSlugOrSku": "synthetic-travel-organizer-blue",
+        "variant": "blue",
+        "facts": [
+          {
+            "field": "product_name",
+            "value": "旅行收纳袋",
+            "source": "synthetic supplied fact sheet",
+            "evidenceLevel": "authorized"
+          },
+          {
+            "field": "material",
+            "value": "涤纶",
+            "source": "synthetic supplied fact sheet",
+            "evidenceLevel": "authorized"
+          },
+          {
+            "field": "color",
+            "value": "蓝色",
+            "source": "synthetic supplied fact sheet",
+            "evidenceLevel": "authorized"
+          }
+        ],
+        "reviewers": {
+          "language": "Synthetic Language Reviewer",
+          "channelPolicy": "Synthetic Channel Owner",
+          "businessRelease": "Synthetic Business Owner"
+        }
+      },
+      "expected": {
+        "claimStatuses": {
+          "Travel organizer bag": "approved",
+          "Polyester": "approved",
+          "Blue": "approved",
+          "Lightweight / waterproof / large capacity": "blocked",
+          "Clothing, commuting, or home storage": "blocked"
+        },
+        "manifestStatus": "not_ready",
+        "requiredBlockingGaps": [
+          "dimensions",
+          "package_quantity",
+          "closure",
+          "capacity",
+          "current_channel_requirements"
+        ],
+        "forbiddenCandidateTerms": [
+          "lightweight",
+          "waterproof",
+          "large capacity",
+          "clothing",
+          "commuting",
+          "home storage"
+        ]
+      }
+    },
+    {
+      "id": "review-is-not-approval",
+      "expectedStatus": "not_ready",
+      "reason": "A source-grounded term that still needs a named language decision cannot enter the release candidate.",
+      "purpose": "Keep a source-grounded translation or current-policy judgment out of the release candidate until the named reviewer records a decision.",
+      "input": {
+        "sourceMarket": "China",
+        "targetMarket": "United States",
+        "targetLanguage": "English",
+        "targetChannel": "generic ecommerce marketplace draft",
+        "productSlugOrSku": "synthetic-organizer-gray",
+        "variant": "gray",
+        "facts": [
+          {
+            "field": "product_name",
+            "value": "桌面收纳盒",
+            "source": "synthetic supplied fact sheet",
+            "evidenceLevel": "authorized"
+          },
+          {
+            "field": "color",
+            "value": "灰色",
+            "source": "synthetic supplied fact sheet",
+            "evidenceLevel": "authorized"
+          }
+        ],
+        "termsRequiringReview": [
+          "Desk organizer box"
+        ],
+        "reviewers": {
+          "language": "Synthetic Language Reviewer",
+          "channelPolicy": "Synthetic Channel Owner",
+          "businessRelease": "Synthetic Business Owner"
+        },
+        "recordedReviewDecisions": []
+      },
+      "expected": {
+        "claimStatuses": {
+          "Desk organizer box": "review",
+          "Gray": "approved"
+        },
+        "manifestStatus": "not_ready",
+        "failureCode": "review_required",
+        "nextStepOwner": "Synthetic Language Reviewer",
+        "candidateContainsReviewClaim": false
+      }
+    },
+    {
+      "id": "invalid-required-input-blocks-draft",
+      "expectedStatus": "not_ready",
+      "reason": "An empty required target language and unverified fact require invalid_input without a generated draft.",
+      "purpose": "Return an explicit input failure without fabricating a localized draft.",
+      "input": {
+        "sourceMarket": "China",
+        "targetMarket": "United States",
+        "targetLanguage": "",
+        "targetChannel": "generic ecommerce marketplace draft",
+        "productSlugOrSku": "synthetic-organizer-red",
+        "variant": "red",
+        "facts": [
+          {
+            "field": "product_name",
+            "value": "收纳袋",
+            "source": "unconfirmed note",
+            "evidenceLevel": "unverified"
+          }
+        ]
+      },
+      "expected": {
+        "manifestStatus": "not_ready",
+        "failureCode": "invalid_input",
+        "invalidFields": [
+          "targetLanguage"
+        ],
+        "internalDraftStatus": "not_generated",
+        "candidateStatus": "not_generated",
+        "requiredNextStep": "Provide a target language and authorized product facts."
+      }
+    }
+]

@@ -2,7 +2,10 @@ import { Footer } from "@/components/footer";
 import { SiteHeader } from "@/components/site-header";
 import { TutorialCard } from "@/components/tutorial-card";
 import { categoryFor, tutorialEntries } from "@/lib/tutorials";
+import { buildPageMetadata } from "@/lib/site-config";
 import Link from "next/link";
+
+export const metadata = buildPageMetadata("/tutorials", "AI 实战教程合集", "少看一点演示，多跑通一条能复用、可验证的 AI 增长流程。");
 
 export default function TutorialsPage() {
   const category = undefined;

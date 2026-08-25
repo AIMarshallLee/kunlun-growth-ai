@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "packageVersion": "1.0.0",
+  "evidenceMode": "strict",
+  "defaults": {
+    "sourceMarket": "China",
+    "targetMarket": "United States",
+    "targetLanguage": "English",
+    "targetChannel": "generic ecommerce marketplace draft"
+  },
+  "evidenceLevels": [
+    "authorized",
+    "observed",
+    "unverified",
+    "unknown"
+  ],
+  "claimStatuses": [
+    "approved",
+    "blocked",
+    "review"
+  ],
+  "manifestStatuses": [
+    "ready",
+    "not_ready"
+  ],
+  "reviewRoles": {
+    "language": "language_reviewer",
+    "channelPolicy": "channel_policy_owner",
+    "businessRelease": "business_release_owner"
+  },
+  "reviewers": {
+    "languageReviewOwner": "language_reviewer",
+    "channelPolicyOwner": "channel_policy_owner",
+    "releaseDecisionOwner": "business_release_owner"
+  },
+  "releaseRules": {
+    "requireAuthorizedEvidenceForApprovedClaims": true,
+    "requireNamedLanguageReview": true,
+    "requireNamedChannelPolicyReview": true,
+    "requireNamedBusinessApproval": true,
+    "blockUnknownOrUnverifiedClaims": true,
+    "allowAutomaticPublish": false
+  },
+  "network": {
+    "automaticAccess": false,
+    "automaticUpload": false
+  }
+}

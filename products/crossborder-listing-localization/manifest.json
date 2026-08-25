@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "slug": "crossborder-listing-localization",
+  "name": "Cross-border Listing Localization",
+  "version": "1.0.0",
+  "entrypoint": "SKILL.md",
+  "configExample": "config.example.json",
+  "contract": "CONTRACT.md",
+  "license": "LICENSE.md",
+  "notice": "NOTICE.md",
+  "support": "SUPPORT.md",
+  "publicExample": "examples/synthetic-travel-organizer",
+  "testCommand": "node verify.mjs",
+  "compatibleHosts": [
+    "Codex",
+    "WorkBuddy",
+    "SKILL.md-compatible hosts"
+  ],
+  "runtimeDependencies": [],
+  "thirdPartyRuntimeDependencies": [],
+  "networkAccessRequired": false,
+  "status": "released",
+  "packageStatus": "commercial-ready",
+  "marketValidationStatus": "awaiting-real-customer-operations-data",
+  "requiredReviewerFields": [
+    "reviewers.languageReviewOwner",
+    "reviewers.channelPolicyOwner",
+    "reviewers.releaseDecisionOwner"
+  ],
+  "configuration": {
+    "example": "config.example.json",
+    "installedName": "config.json",
+    "containsSecrets": false
+  },
+  "publicExamples": [
+    {
+      "input": "examples/synthetic-travel-organizer/input.md",
+      "expectedOutput": "examples/synthetic-travel-organizer/expected-output.md"
+    }
+  ],
+  "tests": {
+    "command": "node verify.mjs",
+    "contractCases": "tests/contract-cases.json",
+    "report": "TEST-REPORT.md"
+  },
+  "contentDirectories": [
+    "templates",
+    "references",
+    "examples",
+    "tests"
+  ],
+  "outputs": [
+    "claim_ledger",
+    "blocking_gaps",
+    "internal_market_draft",
+    "human_review_checklist",
+    "channel_ready_candidate",
+    "delivery_manifest"
+  ],
+  "evidenceLevels": [
+    "authorized",
+    "observed",
+    "unverified",
+    "unknown"
+  ],
+  "claimStatuses": [
+    "approved",
+    "blocked",
+    "review"
+  ],
+  "manifestStatuses": [
+    "ready",
+    "not_ready"
+  ],
+  "requiredContractTerms": [
+    "authorized",
+    "observed",
+    "unverified",
+    "unknown",
+    "approved",
+    "blocked",
+    "review",
+    "ready",
+    "not_ready"
+  ],
+  "nonGoals": [
+    "automatic publishing",
+    "legal advice",
+    "translation certification",
+    "platform approval guarantees",
+    "commercial outcome guarantees"
+  ]
+}

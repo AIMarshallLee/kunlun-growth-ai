@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "evidenceMode": "strict",
+  "outputDirectory": "product-material-output",
+  "preserveSourceFiles": true,
+  "mediaGeneration": "disabled",
+  "networkAccess": "disabled",
+  "reviewers": {
+    "factReviewer": "商品事实负责人",
+    "assetRightsReviewer": "素材授权负责人",
+    "brandReviewer": "品牌审核负责人",
+    "releaseDecisionOwner": "发布决策负责人"
+  },
+  "releasePolicy": {
+    "humanApprovalRequired": true,
+    "autoUpload": false,
+    "autoPublish": false,
+    "purchaseApiUsage": false
+  }
+}

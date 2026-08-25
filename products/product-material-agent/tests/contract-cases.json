@@ -1,0 +1,27 @@
+[
+  {
+    "id": "authorized-plan-only-input",
+    "expectedStatus": "ready_for_review",
+    "reason": "Authorized facts, scope, reviewer roles, and plan-only asset declaration are complete; disabled media generation does not block text and planning outputs."
+  },
+  {
+    "id": "missing-release-owner",
+    "expectedStatus": "blocked_invalid_input",
+    "reason": "A live workflow without an accountable releaseDecisionOwner fails the required configuration contract."
+  },
+  {
+    "id": "unsupported-water-resistance-claim",
+    "expectedStatus": "blocked_missing_evidence",
+    "reason": "The requested performance claim has no authorized source and must be excluded until evidence is supplied."
+  },
+  {
+    "id": "conflicting-dimensions",
+    "expectedStatus": "blocked_evidence_conflict",
+    "reason": "Two in-scope sources give different dimensions, so the conflict must be resolved by the fact reviewer."
+  },
+  {
+    "id": "requested-render-without-provider",
+    "expectedStatus": "blocked_capability",
+    "reason": "Actual media generation was requested but no authorized provider or local generation capability is available."
+  }
+]

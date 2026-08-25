@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0",
+  "fixture_set": "product-media-qa-synthetic-1.0.0",
+  "synthetic": true,
+  "contains_brand_or_customer_data": false,
+  "files": {
+    "hero.png": {
+      "format": "png",
+      "width": 64,
+      "height": 64,
+      "png_color_type": 2,
+      "animated": false
+    },
+    "clip.mp4": {
+      "container": "mp4",
+      "video_codec": "h264",
+      "width": 64,
+      "height": 64,
+      "duration_seconds": 1,
+      "duration_tolerance_seconds": 0.05,
+      "frame_rate": 25,
+      "audio_stream_count": 1,
+      "audio_codec": "aac",
+      "subtitle_sidecar": "clip.srt"
+    },
+    "clip.srt": {
+      "encoding": "UTF-8",
+      "cue_count": 2,
+      "first_cue_start": "00:00:00,000",
+      "last_cue_end": "00:00:01,000"
+    }
+  }
+}

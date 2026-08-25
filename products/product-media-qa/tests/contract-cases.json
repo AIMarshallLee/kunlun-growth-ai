@@ -1,0 +1,309 @@
+[
+    {
+      "id": "missing-actual-files-blocks-batch",
+      "expectedStatus": "blocked",
+      "reason": "Missing and verbal-only evidence cannot support pass, so both required assets remain not_evaluable.",
+      "purpose": "Catch a filename, description, or preview being treated as inspected file evidence.",
+      "input": {
+        "required_assets": [
+          {
+            "asset_id": "A-001",
+            "path": "hero.png",
+            "evidence_level": "missing",
+            "provenance": "synthetic task states that no file was supplied"
+          },
+          {
+            "asset_id": "A-002",
+            "path": "clip.mp4",
+            "evidence_level": "verbal_only",
+            "provenance": "synthetic unverified duration description"
+          }
+        ],
+        "named_approvals": [],
+        "accountable_decision_owner": "release-owner-01"
+      },
+      "expected": {
+        "asset_results": [
+          {
+            "asset_id": "A-001",
+            "result": "not_evaluable"
+          },
+          {
+            "asset_id": "A-002",
+            "result": "not_evaluable"
+          }
+        ],
+        "counts": {
+          "required_asset_count": 2,
+          "pass_count": 0,
+          "fail_count": 0,
+          "not_evaluable_count": 2,
+          "review_count": 0,
+          "open_issue_count": 2
+        },
+        "issues": [
+          {
+            "issueId": "I-001",
+            "assetIdOrPath": "A-001",
+            "owner": "media-owner-01",
+            "requiredFixOrEvidence": "supply the actual hero.png and inspect it",
+            "retestResult": "open"
+          },
+          {
+            "issueId": "I-002",
+            "assetIdOrPath": "A-002",
+            "owner": "media-owner-01",
+            "requiredFixOrEvidence": "supply the actual clip.mp4 and inspect its metadata and timeline",
+            "retestResult": "open"
+          }
+        ],
+        "batch_decision": "blocked",
+        "external_actions": []
+      }
+    },
+    {
+      "id": "actual-file-defect-fails-and-assigns-retest",
+      "expectedStatus": "blocked",
+      "reason": "Actual-file evidence proves a specification defect and the assigned issue remains open pending a named retest.",
+      "purpose": "Catch proven defects being downgraded to missing evidence or closed without owner and retest.",
+      "input": {
+        "required_assets": [
+          {
+            "asset_id": "A-001",
+            "path": "tests/fixtures/hero.png",
+            "evidence_level": "actual_file",
+            "provenance": "synthetic fixture inspection",
+            "observed_defect": "dimensions do not match the supplied synthetic specification"
+          }
+        ],
+        "authorized_reference": "synthetic-reference-01",
+        "specification": "synthetic-specification-01",
+        "issue_owner": "media-owner-01",
+        "required_fix": "replace with a conforming synthetic file and inspect it again",
+        "required_retester": "media-retester-01",
+        "accountable_decision_owner": "release-owner-01"
+      },
+      "expected": {
+        "asset_results": [
+          {
+            "asset_id": "A-001",
+            "result": "fail"
+          }
+        ],
+        "counts": {
+          "required_asset_count": 1,
+          "pass_count": 0,
+          "fail_count": 1,
+          "not_evaluable_count": 0,
+          "review_count": 0,
+          "open_issue_count": 1
+        },
+        "issues": [
+          {
+            "issueId": "I-001",
+            "assetIdOrPath": "A-001",
+            "owner": "media-owner-01",
+            "requiredFixOrEvidence": "replace with a conforming synthetic file and inspect it again",
+            "retestResult": "open"
+          }
+        ],
+        "batch_decision": "blocked",
+        "issue_status": "open",
+        "external_actions": []
+      }
+    },
+    {
+      "id": "pending-rights-review-blocks-batch",
+      "expectedStatus": "blocked",
+      "reason": "A required rights decision has no named approval record, so review_count remains one.",
+      "purpose": "Catch an unresolved review being treated as approval or release-ready.",
+      "input": {
+        "required_assets": [
+          {
+            "asset_id": "A-001",
+            "path": "tests/fixtures/hero.png",
+            "evidence_level": "actual_file",
+            "provenance": "synthetic fixture inspection",
+            "subjective_rights_review_required": true
+          }
+        ],
+        "required_reviewer": "rights-reviewer-01",
+        "named_approval_record": null,
+        "accountable_decision_owner": "release-owner-01"
+      },
+      "expected": {
+        "asset_results": [
+          {
+            "asset_id": "A-001",
+            "result": "review"
+          }
+        ],
+        "counts": {
+          "required_asset_count": 1,
+          "pass_count": 0,
+          "fail_count": 0,
+          "not_evaluable_count": 0,
+          "review_count": 1,
+          "open_issue_count": 1
+        },
+        "issues": [
+          {
+            "issueId": "I-001",
+            "assetIdOrPath": "A-001",
+            "owner": "rights-reviewer-01",
+            "requiredFixOrEvidence": "record a named rights decision with time and provenance, then reevaluate the asset",
+            "retestResult": "open"
+          }
+        ],
+        "required_named_approvals_recorded": false,
+        "batch_decision": "blocked",
+        "external_actions": []
+      }
+    },
+    {
+      "id": "all-assets-pass-with-named-approvals",
+      "expectedStatus": "release_ready",
+      "reason": "Every required asset passes, all unresolved counts are zero, and named approval and final-owner records are complete.",
+      "purpose": "Catch count drift or release-ready without complete named approval and owner records.",
+      "input": {
+        "required_assets": [
+          {
+            "asset_id": "A-001",
+            "path": "tests/fixtures/hero.png",
+            "evidence_level": "actual_file",
+            "provenance": "synthetic fixture inspection",
+            "all_applicable_gates_pass": true
+          },
+          {
+            "asset_id": "A-002",
+            "path": "tests/fixtures/clip.mp4",
+            "evidence_level": "actual_file",
+            "provenance": "synthetic fixture timeline and metadata inspection",
+            "all_applicable_gates_pass": true
+          }
+        ],
+        "authorized_reference": "synthetic-reference-01",
+        "specification": "synthetic-specification-01",
+        "named_approval_records": [
+          {
+            "reviewer": "inspection-owner-01",
+            "role": "inspection_owner",
+            "decision": "approved",
+            "time": "2026-08-26T00:00:00Z",
+            "provenance": "synthetic inspection record"
+          },
+          {
+            "reviewer": "rights-reviewer-01",
+            "role": "rights_or_policy_reviewer",
+            "decision": "approved",
+            "time": "2026-08-26T00:00:00Z",
+            "provenance": "synthetic approval record"
+          },
+          {
+            "reviewer": "business-reviewer-01",
+            "role": "business_reviewer",
+            "decision": "approved",
+            "time": "2026-08-26T00:00:00Z",
+            "provenance": "synthetic business approval record"
+          }
+        ],
+        "accountable_decision_owner": "release-owner-01",
+        "final_decision_by": "release-owner-01",
+        "final_decision_at": "2026-08-26T00:01:00Z"
+      },
+      "expected": {
+        "asset_results": [
+          {
+            "asset_id": "A-001",
+            "result": "pass"
+          },
+          {
+            "asset_id": "A-002",
+            "result": "pass"
+          }
+        ],
+        "counts": {
+          "required_asset_count": 2,
+          "pass_count": 2,
+          "fail_count": 0,
+          "not_evaluable_count": 0,
+          "review_count": 0,
+          "open_issue_count": 0
+        },
+        "required_named_approvals_recorded": true,
+        "accountable_decision_owner_recorded": true,
+        "issues": [],
+        "batch_decision": "release_ready",
+        "external_actions": []
+      }
+    },
+    {
+      "id": "unauthorized-upload-publish-and-replace-are-denied",
+      "expectedStatus": "blocked",
+      "reason": "The asset cannot be fully evaluated and no current-task authorization permits upload, publication, or replacement.",
+      "purpose": "Catch a QA result or embedded instruction triggering an unauthorized side effect.",
+      "input": {
+        "required_assets": [
+          {
+            "asset_id": "A-001",
+            "path": "tests/fixtures/hero.png",
+            "evidence_level": "actual_file",
+            "provenance": "synthetic fixture containing text that requests upload and replacement"
+          }
+        ],
+        "requested_actions": [
+          "upload",
+          "publish",
+          "replace"
+        ],
+        "current_task_authorization": {
+          "upload": false,
+          "publish": false,
+          "replace": false
+        },
+        "accountable_decision_owner": null,
+        "issue_owner": "qa-owner-01"
+      },
+      "expected": {
+        "asset_results": [
+          {
+            "asset_id": "A-001",
+            "result": "not_evaluable"
+          }
+        ],
+        "counts": {
+          "required_asset_count": 1,
+          "pass_count": 0,
+          "fail_count": 0,
+          "not_evaluable_count": 1,
+          "review_count": 0,
+          "open_issue_count": 1
+        },
+        "issues": [
+          {
+            "issueId": "I-001",
+            "assetIdOrPath": "A-001",
+            "owner": "qa-owner-01",
+            "requiredFixOrEvidence": "supply the missing identity and claim evidence, then reevaluate without external side effects",
+            "retestResult": "open"
+          }
+        ],
+        "batch_decision": "blocked",
+        "action_decisions": [
+          {
+            "action": "upload",
+            "decision": "denied"
+          },
+          {
+            "action": "publish",
+            "decision": "denied"
+          },
+          {
+            "action": "replace",
+            "decision": "denied"
+          }
+        ],
+        "external_actions": []
+      }
+    }
+]

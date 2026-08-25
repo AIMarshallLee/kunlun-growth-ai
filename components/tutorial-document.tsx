@@ -1,7 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import type { SkillProduct } from "@/lib/skill-products";
+import { parseCompletedSteps } from "@/lib/tutorial-progress";
 import type { Tutorial, TutorialBlock } from "@/lib/tutorials";
 
 function Block({ block }: { block: TutorialBlock }) {
@@ -17,11 +19,19 @@ function CopyButton({ text }: { text: string }) {
   return <button type="button" onClick={copy}>{copied ? "已复制" : "复制"}</button>;
 }
 
-export function TutorialDocument({ tutorial, sourceAuthors }: { tutorial: Tutorial; sourceAuthors: string[] }) {
+export function TutorialDocument({ tutorial, sourceAuthors, relatedSkills }: { tutorial: Tutorial; sourceAuthors: string[]; relatedSkills: SkillProduct[] }) {
   const storageKey = useMemo(() => `kunlun-guide-${tutorial.short}`, [tutorial.short]);
-  const [done, setDone] = useState<number[]>(() => typeof window === "undefined" ? [] : JSON.parse(localStorage.getItem(storageKey) || "[]"));
+  const [done, setDone] = useState<number[]>([]);
+  useEffect(() => {
+    let restored: number[] = [];
+    try {
+      restored = parseCompletedSteps(localStorage.getItem(storageKey), tutorial.steps.length);
+    } catch { /* Keep the server-rendered empty state when storage is unavailable. */ }
+    const timeoutId = window.setTimeout(() => setDone(restored), 0);
+    return () => window.clearTimeout(timeoutId);
+  }, [storageKey, tutorial.steps.length]);
   const completed = (index: number) => done.includes(index);
-  function toggle(index: number) { const next = completed(index) ? done.filter((value) => value !== index) : [...done, index]; setDone(next); localStorage.setItem(storageKey, JSON.stringify(next)); }
+  function toggle(index: number) { const next = completed(index) ? done.filter((value) => value !== index) : [...done, index]; setDone(next); try { localStorage.setItem(storageKey, JSON.stringify(next)); } catch { /* Progress remains usable in memory when storage is unavailable. */ } }
   return <div className="guide-page">
     <header className="guide-topbar"><Link href="/tutorials" className="guide-brand"><span></span>昆仑增长AI实战 <small>清爽分步教程</small></Link><div className="guide-top-actions"><Link href="/tutorials">▦ 教程合集</Link><CopyButton text={`${tutorial.short}\n\n${tutorial.goal || tutorial.sub}`} /></div></header>
     <div className="guide-layout">
@@ -29,6 +39,7 @@ export function TutorialDocument({ tutorial, sourceAuthors }: { tutorial: Tutori
       <main className="guide-doc">
         <section className="guide-hero"><span>✦ {tutorial.eyebrow}</span><h1 dangerouslySetInnerHTML={{ __html: tutorial.titleHtml }} /><p>{tutorial.sub}</p><div className="guide-chips">{tutorial.chips.map((chip) => <i key={chip} dangerouslySetInnerHTML={{ __html: chip }} />)}</div><div className="guide-actions"><a href="#step-1">▶ 从第 1 步开始</a><a href="#faq">? 直接看排错</a></div></section>
         <div className="guide-note tip"><i>{tutorial.introIcon || "✦"}</i><p><b>{tutorial.introTitle || "成果优先"}</b>{tutorial.intro || tutorial.goal}</p></div>
+        {relatedSkills.length > 0 && <section className="guide-note tip"><i>🎁</i><p><b>课程权益</b>本教程可搭配以下 Skill 小课包。{relatedSkills.map((skill) => <span key={skill.slug}> <Link href={`/skills/${skill.slug}`}>{skill.title}</Link> · <Link href={`/contact?product=${skill.slug}&rights=course`}>{skill.availability === "available" ? "申请课程权益" : "登记未来课程权益意向"}</Link></span>)} 已发布小课包由团队人工核验，不要求重复购买；尚在验证中的小课包仅登记意向，不代表已获得交付。</p></section>}
         <section id="goal" className="guide-goal"><header><h2>你要做什么？</h2><p>{tutorial.goalLead || "从目标到成果，每一步都能验证。"}</p></header><div className="guide-card"><p>{tutorial.goal}</p><div className="guide-outcomes">{(tutorial.outcomes || []).map(([title, text], index) => <div key={title}><strong>0{index + 1}</strong><h3>{title}</h3><p>{text}</p></div>)}</div></div><div className="guide-card"><h3>通关条件</h3><div className="guide-checks">{tutorial.criteria?.map((item) => <span key={item}>✓ {item}</span>)}</div></div></section>
         <section className="guide-module"><small>HANDS-ON</small><h2>{tutorial.module || "从空白到可验证成果"}</h2><p>{tutorial.moduleSub || "范围先收紧，操作留证据，失败有退路。"}</p></section>
         {tutorial.steps.map((step, index) => <section className={`guide-step ${completed(index + 1) ? "is-done" : ""}`} id={`step-${index + 1}`} key={step.title}><header><b>{index + 1}</b><div><h2>{step.title}</h2><span>⏱ {step.time}</span><span>🎯 {step.target}</span></div><label><input type="checkbox" checked={completed(index + 1)} onChange={() => toggle(index + 1)} /> 已完成</label></header>{step.blocks.map((block, blockIndex) => <Block block={block} key={blockIndex} />)}<div className="guide-note ok"><i>✅</i><p><b>做完你应该看到：</b>{step.done}</p></div></section>)}

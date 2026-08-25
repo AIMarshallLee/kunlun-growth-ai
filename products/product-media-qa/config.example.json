@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "package": "product-media-qa",
+  "package_version": "1.0.0",
+  "evidenceMode": "strict",
+  "output_language": "zh-CN",
+  "reviewers": {
+    "inspectionOwner": "inspection_owner",
+    "rightsPolicyReviewOwner": "rights_policy_review_owner",
+    "businessReviewOwner": "business_review_owner",
+    "releaseDecisionOwner": "release_decision_owner",
+    "requireTaskSpecificNamedReviewers": true
+  },
+  "required_checks": [
+    "file_existence_and_openability",
+    "format_and_dimensions_or_duration",
+    "duplicate_detection",
+    "product_identity_and_variant",
+    "visible_construction_and_accessories",
+    "text_logo_watermark_and_claims",
+    "required_asset_completeness"
+  ],
+  "evidence_policy": {
+    "allowed_levels": [
+      "actual_file",
+      "authorized_reference",
+      "specification",
+      "preview_only",
+      "verbal_only",
+      "missing"
+    ],
+    "asset_pass_requires_actual_file": true,
+    "record_provenance": true,
+    "weak_evidence_cannot_support_pass": true
+  },
+  "release_policy": {
+    "minimum_required_asset_count": 1,
+    "require_all_required_assets_pass": true,
+    "maximum_fail_count": 0,
+    "maximum_not_evaluable_count": 0,
+    "maximum_review_count": 0,
+    "maximum_open_issue_count": 0,
+    "require_named_approvals": true,
+    "require_accountable_decision_owner": true
+  },
+  "permissions": {
+    "modify_assets": false,
+    "delete_assets": false,
+    "overwrite_assets": false,
+    "upload_assets": false,
+    "publish_assets": false,
+    "replace_assets": false
+  },
+  "network": {
+    "automatic_access": false
+  }
+}

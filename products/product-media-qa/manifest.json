@@ -1,0 +1,155 @@
+{
+  "schemaVersion": 1,
+  "slug": "product-media-qa",
+  "name": "Product Media QA",
+  "version": "1.0.0",
+  "entrypoint": "SKILL.md",
+  "configExample": "config.example.json",
+  "contract": "CONTRACT.md",
+  "license": "LICENSE.md",
+  "notice": "NOTICE.md",
+  "support": "SUPPORT.md",
+  "publicExample": "examples/synthetic-bag-batch",
+  "testCommand": "node verify.mjs",
+  "compatibleHosts": [
+    "Codex",
+    "WorkBuddy",
+    "SKILL.md-compatible hosts with user-authorized local file access"
+  ],
+  "runtimeDependencies": [],
+  "thirdPartyRuntimeDependencies": [],
+  "networkAccessRequired": false,
+  "status": "released",
+  "packageStatus": "commercial-ready",
+  "marketValidationStatus": "awaiting-real-customer-operations-data",
+  "marketValidation": "awaiting real-customer operating data",
+  "requiredReviewerFields": [
+    "reviewers.inspectionOwner",
+    "reviewers.rightsPolicyReviewOwner",
+    "reviewers.businessReviewOwner",
+    "reviewers.releaseDecisionOwner"
+  ],
+  "requiredApprovalRoles": [
+    "inspection_owner",
+    "rights_or_policy_reviewer",
+    "business_reviewer"
+  ],
+  "configuration": {
+    "example": "config.example.json",
+    "installedName": "config.json",
+    "containsSecrets": false
+  },
+  "publicExamples": [
+    {
+      "input": "examples/synthetic-bag-batch/input.md",
+      "expectedOutput": "examples/synthetic-bag-batch/expected-output.md"
+    }
+  ],
+  "tests": {
+    "command": "node verify.mjs",
+    "contractCases": "tests/contract-cases.json",
+    "fixtureExpectations": "tests/fixtures/expected-metadata.json",
+    "subtitleFixture": "tests/fixtures/clip.srt",
+    "report": "TEST-REPORT.md"
+  },
+  "contentDirectories": [
+    "templates",
+    "references",
+    "examples",
+    "tests"
+  ],
+  "inputs": [
+    "config.json",
+    "completed QA Brief with named responsibilities",
+    "actual candidate files",
+    "authorized product and variant references",
+    "target channel or delivery specification",
+    "required asset manifest"
+  ],
+  "outputs": [
+    "asset_inventory",
+    "issue_log",
+    "batch_decision",
+    "delivery_manifest"
+  ],
+  "evidenceLevels": [
+    "actual_file",
+    "authorized_reference",
+    "specification",
+    "preview_only",
+    "verbal_only",
+    "missing"
+  ],
+  "resultStates": [
+    "pass",
+    "fail",
+    "not_evaluable",
+    "review"
+  ],
+  "batchDecisions": [
+    "release_ready",
+    "blocked"
+  ],
+  "releaseFormula": {
+    "requiredAssetCountMinimum": 1,
+    "passCountEqualsRequiredAssetCount": true,
+    "failCount": 0,
+    "notEvaluableCount": 0,
+    "reviewCount": 0,
+    "openIssueCount": 0,
+    "requiredNamedApprovalsRecorded": true,
+    "accountableDecisionOwnerRecorded": true,
+    "finalDecisionByEqualsAccountableDecisionOwner": true
+  },
+  "permissions": {
+    "modifyAssetsWithoutCurrentAuthorization": false,
+    "deleteAssetsWithoutCurrentAuthorization": false,
+    "overwriteAssetsWithoutCurrentAuthorization": false,
+    "uploadAssetsWithoutCurrentAuthorization": false,
+    "publishAssetsWithoutCurrentAuthorization": false,
+    "replaceAssetsWithoutCurrentAuthorization": false
+  },
+  "requiredContractTerms": [
+    "actual_file",
+    "authorized_reference",
+    "specification",
+    "preview_only",
+    "verbal_only",
+    "missing",
+    "pass",
+    "fail",
+    "not_evaluable",
+    "review",
+    "release_ready",
+    "blocked",
+    "pass_count === required_asset_count",
+    "accountable_decision_owner"
+  ],
+  "nonGoals": [
+    "automatic asset modification",
+    "automatic upload or publication",
+    "platform approval guarantees",
+    "commercial outcome guarantees"
+  ],
+  "fixtureChecks": [
+    {
+      "path": "tests/fixtures/hero.png",
+      "type": "png",
+      "width": 64,
+      "height": 64
+    },
+    {
+      "path": "tests/fixtures/clip.mp4",
+      "type": "mp4",
+      "minDurationSeconds": 0.95,
+      "maxDurationSeconds": 1.05,
+      "hasVideo": true,
+      "hasAudio": true
+    },
+    {
+      "path": "tests/fixtures/clip.srt",
+      "type": "srt",
+      "minCues": 2
+    }
+  ]
+}

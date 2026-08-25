@@ -2,6 +2,9 @@ import Link from "next/link";
 import { Footer } from "@/components/footer";
 import { OpportunityCardTool } from "@/components/opportunity-card-tool";
 import { SiteHeader } from "@/components/site-header";
+import { buildPageMetadata } from "@/lib/site-config";
+
+export const metadata = buildPageMetadata("/tools/product-opportunity-card", "AI 选品机会卡", "在本地整理需求证据、利润假设、风险、最小实验和停止条件。");
 
 export default function ProductOpportunityCardPage() {
   return <><SiteHeader /><main className="page shell">

@@ -1,0 +1,75 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Product definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "slug",
+    "name",
+    "category",
+    "version",
+    "packageStatus",
+    "marketValidationStatus",
+    "publicStatus",
+    "compatibleHosts",
+    "evidenceLevels",
+    "resultStates",
+    "requiredReviewerFields",
+    "outputs",
+    "sourceEvidence",
+    "domainRules",
+    "nonGoals"
+  ],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "slug": { "type": "string", "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$" },
+    "name": { "type": "string", "pattern": ".*\\S.*" },
+    "category": { "enum": ["ecommerce", "education"] },
+    "version": { "type": "string" },
+    "packageStatus": { "enum": ["draft", "package_ready", "released", "withdrawn"] },
+    "marketValidationStatus": { "enum": ["awaiting", "pilot", "validated", "rejected"] },
+    "publicStatus": { "enum": ["internal", "waitlist", "available", "paused"] },
+    "compatibleHosts": { "$ref": "#/$defs/twoOrMoreUniqueStrings" },
+    "evidenceLevels": {
+      "type": "array",
+      "items": { "enum": ["authorized", "observed", "unverified", "unknown"] },
+      "minItems": 4,
+      "maxItems": 4,
+      "uniqueItems": true
+    },
+    "resultStates": {
+      "type": "array",
+      "items": { "enum": ["pass", "fail", "not_evaluable", "review"] },
+      "minItems": 4,
+      "maxItems": 4,
+      "uniqueItems": true
+    },
+    "requiredReviewerFields": { "$ref": "#/$defs/nonEmptyUniqueStrings" },
+    "outputs": { "$ref": "#/$defs/nonEmptyUniqueStrings" },
+    "sourceEvidence": { "$ref": "#/$defs/nonEmptyUniqueStrings" },
+    "domainRules": { "$ref": "#/$defs/nonEmptyUniqueStrings" },
+    "nonGoals": { "$ref": "#/$defs/nonEmptyUniqueStrings" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "packageStatus": { "const": "draft" } } },
+      "then": { "properties": { "version": { "pattern": "^0\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$" } } },
+      "else": { "properties": { "version": { "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$" } } }
+    }
+  ],
+  "$defs": {
+    "nonEmptyUniqueStrings": {
+      "type": "array",
+      "items": { "type": "string", "pattern": ".*\\S.*" },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "twoOrMoreUniqueStrings": {
+      "type": "array",
+      "items": { "type": "string", "pattern": ".*\\S.*" },
+      "minItems": 2,
+      "uniqueItems": true
+    }
+  }
+}

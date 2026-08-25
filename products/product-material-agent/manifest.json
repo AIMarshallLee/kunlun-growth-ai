@@ -1,0 +1,67 @@
+{
+  "slug": "product-material-agent",
+  "name": "Product Material Agent",
+  "version": "1.0.0",
+  "entrypoint": "SKILL.md",
+  "configExample": "config.example.json",
+  "contract": "CONTRACT.md",
+  "license": "LICENSE.md",
+  "notice": "NOTICE.md",
+  "support": "SUPPORT.md",
+  "publicExample": "examples/synthetic-travel-organizer/expected-output.md",
+  "testCommand": "node verify.mjs",
+  "compatibleHosts": [
+    "Codex",
+    "WorkBuddy",
+    "SKILL.md-compatible hosts"
+  ],
+  "runtimeDependencies": [],
+  "networkAccessRequired": false,
+  "packageStatus": "commercial-ready",
+  "marketValidationStatus": "awaiting-real-customer-operations-data",
+  "marketValidationEvidenceRecords": 0,
+  "requiredReviewerFields": [
+    "reviewers.factReviewer",
+    "reviewers.assetRightsReviewer",
+    "reviewers.brandReviewer",
+    "reviewers.releaseDecisionOwner"
+  ],
+  "outputs": [
+    "fact-record.md",
+    "copy-draft.md",
+    "image-plan.md",
+    "video-storyboard.md",
+    "open-questions.md",
+    "delivery-manifest.md"
+  ],
+  "workflowStatuses": [
+    "ready_for_review",
+    "blocked_invalid_input",
+    "blocked_missing_evidence",
+    "blocked_evidence_conflict",
+    "blocked_capability"
+  ],
+  "evidenceLevels": [
+    "authorized",
+    "observed",
+    "unverified",
+    "unknown"
+  ],
+  "requiredContractTerms": [
+    "authorized",
+    "observed",
+    "unverified",
+    "unknown",
+    "blocked_invalid_input",
+    "blocked_missing_evidence",
+    "blocked_evidence_conflict",
+    "blocked_capability"
+  ],
+  "nonGoals": [
+    "automatic network access",
+    "third-party model bundling",
+    "credential storage",
+    "automatic upload or publishing",
+    "guaranteed commercial outcomes"
+  ]
+}

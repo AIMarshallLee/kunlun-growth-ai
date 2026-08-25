@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { Footer } from "@/components/footer";
 import { SiteHeader } from "@/components/site-header";
+import { buildPageMetadata } from "@/lib/site-config";
+
+export const metadata = buildPageMetadata("/works", "作品广场", "展示真实、可说明、可验证的 AI 实战作品及其已知限制。");
 
 const examples = [
   ["商品图到 3D 广告", "AI × 跨境电商", "待首批作品开放"],

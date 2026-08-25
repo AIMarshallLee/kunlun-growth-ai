@@ -4,9 +4,16 @@ import { Footer } from "@/components/footer";
 import { SiteHeader } from "@/components/site-header";
 import { TutorialCard } from "@/components/tutorial-card";
 import { caseStudies, getCaseStudy } from "@/lib/cases";
+import { buildPageMetadata } from "@/lib/site-config";
 import { getTutorial } from "@/lib/tutorials";
 
 export function generateStaticParams() { return caseStudies.map(({ slug }) => ({ slug })); }
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const item = getCaseStudy(slug);
+  return item ? buildPageMetadata(`/cases/${slug}`, item.title, item.summary) : {};
+}
 
 export default async function CaseDetailPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;

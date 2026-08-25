@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "generatedOn": "2026-08-26",
+  "products": [
+    {
+      "slug": "product-material-agent",
+      "version": "1.0.0",
+      "file": "product-material-agent-1.0.0.zip",
+      "sizeBytes": 29725,
+      "sha256": "765B021731700FBFCE90BA74C667840DE535079314CDE4E497D9CFBDC17BE188",
+      "zipEntryCount": 24,
+      "packageStatus": "commercial-ready",
+      "marketValidationStatus": "awaiting-real-customer-operations-data"
+    },
+    {
+      "slug": "crossborder-listing-localization",
+      "version": "1.0.0",
+      "file": "crossborder-listing-localization-1.0.0.zip",
+      "sizeBytes": 33093,
+      "sha256": "E4108CC45AB6F4A9C0F2D9466313DEAA3E01290BA7BF7FAEA1D796EA56FF7363",
+      "zipEntryCount": 26,
+      "packageStatus": "commercial-ready",
+      "marketValidationStatus": "awaiting-real-customer-operations-data"
+    },
+    {
+      "slug": "product-media-qa",
+      "version": "1.0.0",
+      "file": "product-media-qa-1.0.0.zip",
+      "sizeBytes": 51191,
+      "sha256": "A109DC6852EC06761313A4B35B06953626962A47A756878E4E1C089ED537EB9C",
+      "zipEntryCount": 30,
+      "packageStatus": "commercial-ready",
+      "marketValidationStatus": "awaiting-real-customer-operations-data"
+    }
+  ]
+}
