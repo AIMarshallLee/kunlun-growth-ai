@@ -1,0 +1,345 @@
+/* Enterprise AI identity and 20-minute diagnosis */
+.identity-main {
+  max-width: 1240px;
+  padding-top: 8vh;
+  padding-right: 32px;
+  padding-left: 32px;
+}
+
+.identity-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(350px, 0.65fr);
+  gap: 56px;
+  align-items: center;
+  padding: 0 0 72px;
+  border-bottom: 1px solid var(--line);
+}
+
+.identity-hero h1 {
+  font-size: clamp(2.7rem, 5vw, 5.8rem);
+}
+
+.identity-hero h1 span {
+  display: block;
+  white-space: nowrap;
+}
+
+.identity-actions {
+  margin-top: 30px;
+}
+
+.identity-safety {
+  margin: 18px 0 0;
+  color: #486152;
+  font: 11px/1.6 var(--mono);
+}
+
+.identity-safety::before {
+  margin-right: 8px;
+  color: #2f7b4c;
+  content: "●";
+}
+
+.identity-card {
+  padding: 30px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  box-shadow: 12px 12px 0 var(--orange);
+  color: var(--cream);
+}
+
+.identity-card-label {
+  margin: 0 0 30px;
+  color: var(--acid);
+  font: 700 10px var(--mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.identity-card h2 {
+  margin: 0 0 24px;
+  font-size: clamp(2.4rem, 4vw, 4.2rem);
+}
+
+.identity-card dl {
+  margin: 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.identity-card dl div {
+  display: grid;
+  grid-template-columns: 82px 1fr;
+  gap: 14px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.identity-card dt {
+  opacity: 0.65;
+  font: 10px var(--mono);
+}
+
+.identity-card dd {
+  margin: 0;
+  font: 700 12px/1.6 var(--mono);
+  word-break: break-word;
+}
+
+.identity-card a {
+  color: var(--acid);
+}
+
+.identity-legal {
+  margin: 22px 0 0;
+  opacity: 0.7;
+  font: 10px/1.8 var(--mono);
+}
+
+.identity-principles {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin: 0 -32px;
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.identity-principles div {
+  display: flex;
+  min-height: 112px;
+  align-items: center;
+  gap: 15px;
+  padding: 26px 3vw;
+  border-right: 1px solid rgba(255, 255, 255, 0.16);
+}
+
+.identity-principles b {
+  color: var(--acid);
+  font: 700 20px var(--mono);
+}
+
+.identity-principles span {
+  font: 700 12px/1.5 var(--mono);
+}
+
+.identity-audience {
+  display: grid;
+  grid-template-columns: 0.75fr 1.25fr;
+  gap: 72px;
+}
+
+.identity-section-head {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: end;
+  gap: 48px;
+}
+
+.identity-disclaimer {
+  padding: 18px;
+  border-left: 3px solid var(--orange);
+  font: 12px/1.7 var(--mono) !important;
+}
+
+.identity-scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.identity-scenario-card {
+  display: flex;
+  min-height: 420px;
+  flex-direction: column;
+  padding: 25px;
+  border: 1px solid var(--ink);
+  background: #fffdf8;
+}
+
+.identity-scenario-card > span {
+  color: var(--orange);
+  font: 700 10px var(--mono);
+  letter-spacing: 0.07em;
+}
+
+.identity-scenario-card h3 {
+  margin: 48px 0 20px;
+  font-size: 1.65rem;
+  line-height: 1.25;
+}
+
+.identity-scenario-card dl {
+  margin: auto 0 0;
+}
+
+.identity-scenario-card dl div {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+
+.identity-scenario-card dt {
+  color: #486152;
+  font: 10px var(--mono);
+}
+
+.identity-scenario-card dd {
+  margin: 4px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.diagnosis-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 72px;
+}
+
+.diagnosis-agenda {
+  margin: 0;
+  padding: 0 !important;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.diagnosis-agenda li {
+  display: grid;
+  grid-template-columns: 76px 1fr;
+  gap: 18px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.diagnosis-agenda b {
+  color: var(--orange);
+  font: 700 14px var(--mono);
+}
+
+.diagnosis-agenda strong {
+  font-size: 17px;
+}
+
+.diagnosis-agenda p {
+  margin: 3px 0 0;
+  font-size: 14px;
+}
+
+.boundary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 30px 0;
+}
+
+.boundary-grid article {
+  padding: 28px;
+  border: 1px solid var(--ink);
+  background: var(--acid);
+}
+
+.boundary-grid article > span {
+  font: 700 11px var(--mono);
+  letter-spacing: 0.08em;
+}
+
+.boundary-grid .boundary-dont {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.boundary-grid ul {
+  margin: 22px 0 0;
+}
+
+.identity-contact {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: end;
+  gap: 48px;
+}
+
+.identity-contact > div:last-child {
+  text-align: right;
+}
+
+.identity-contact a {
+  color: inherit;
+}
+
+.identity-contact .button {
+  color: var(--ink);
+}
+
+@media (max-width: 800px) {
+  .identity-main {
+    padding-right: 7vw;
+    padding-left: 7vw;
+  }
+
+  .identity-hero,
+  .identity-audience,
+  .identity-section-head,
+  .diagnosis-layout,
+  .identity-contact {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .identity-card {
+    box-shadow: 7px 7px 0 var(--orange);
+  }
+
+  .identity-principles {
+    grid-template-columns: 1fr 1fr;
+    margin-right: -7vw;
+    margin-left: -7vw;
+  }
+
+  .identity-principles div:nth-child(2) {
+    border-right: 0;
+  }
+
+  .identity-scenario-grid,
+  .boundary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .identity-scenario-card {
+    min-height: auto;
+  }
+
+  .identity-contact > div:last-child {
+    text-align: left;
+  }
+}
+
+@media (max-width: 520px) {
+  .identity-main {
+    padding-top: 6vh;
+  }
+
+  .identity-hero {
+    padding-bottom: 50px;
+  }
+
+  .identity-principles {
+    grid-template-columns: 1fr;
+    margin-right: -7vw;
+    margin-left: -7vw;
+  }
+
+  .identity-principles div {
+    min-height: 76px;
+    padding-left: 7vw;
+    border-right: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.16);
+  }
+
+  .identity-card dl div {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .identity-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

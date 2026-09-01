@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>企业生成式 AI 员工使用规范：输入边界、人审与停止条件｜昆仑增长</title>
+    <meta name="description" content="企业生成式 AI 员工使用规范草案：明确资料输入、账号权限、事实核验、人工审核、对外发布、事故报告和停止条件；仅作内部讨论模板，不替代法律意见。" />
+    <link rel="canonical" href="https://kunlungrowth.com/resources/enterprise-generative-ai-employee-usage-policy/" />
+    <link rel="stylesheet" href="/site.css" />
+    <script type="application/ld+json">
+      {
+        "@context":"https://schema.org",
+        "@graph":[
+          {
+            "@type":"Article",
+            "headline":"企业生成式 AI 员工使用规范：输入边界、人审与停止条件",
+            "description":"企业生成式 AI 员工使用规范草案，明确资料输入、工具权限、事实核验、人工审核、事故报告和停止条件；不替代法律意见。",
+            "url":"https://kunlungrowth.com/resources/enterprise-generative-ai-employee-usage-policy/",
+            "inLanguage":"zh-CN",
+            "author":{"@type":"Organization","@id":"https://kunlungrowth.com/#organization"},
+            "publisher":{"@id":"https://kunlungrowth.com/#organization"},
+            "datePublished":"2026-08-23",
+            "dateModified":"2026-08-23",
+            "isPartOf":{"@type":"WebSite","@id":"https://kunlungrowth.com/#website"}
+          },
+          {
+            "@type":"FAQPage",
+            "mainEntity":[
+              {"@type":"Question","name":"公司批准了某个 AI 工具，员工就可以输入所有内部资料吗？","acceptedAnswer":{"@type":"Answer","text":"不可以。工具获批与具体资料获准输入是两件事，仍需确认资料所有者、用途、敏感等级、访问角色、保存和删除方式。"}},
+              {"@type":"Question","name":"AI 写的邮件可以直接发给客户吗？","acceptedAnswer":{"@type":"Answer","text":"默认不可以。员工应核验事实、承诺、价格、附件、收件人和语气，并按组织流程由授权人员确认后再发送。"}},
+              {"@type":"Question","name":"员工误把敏感资料粘贴进 AI 应该怎么办？","acceptedAnswer":{"@type":"Answer","text":"立即停止继续使用和传播，保留必要记录，并按组织指定的信息安全或事件渠道报告，不要自行扩大处理范围。"}},
+              {"@type":"Question","name":"生成式 AI 员工使用规范是法律文件吗？","acceptedAnswer":{"@type":"Answer","text":"不是。本页是内部讨论模板，不构成法律意见、合规评估、劳动制度或对具体场景的结论。"}},
+              {"@type":"Question","name":"员工可以用个人 AI 账号处理工作资料吗？","acceptedAnswer":{"@type":"Answer","text":"除非组织明确批准并完成资料和安全评估，否则不应使用个人账号处理公司资料。"}},
+              {"@type":"Question","name":"员工使用规范会不会阻止团队使用 AI？","acceptedAnswer":{"@type":"Answer","text":"目标是把可控用途说清楚。公开或已授权的低风险任务可以在批准工具和人工审核边界内使用，高风险场景应先补资料、权限、审核和回退条件。"}}
+            ]
+          },
+          {
+            "@type":"BreadcrumbList",
+            "itemListElement":[
+              {"@type":"ListItem","position":1,"name":"首页","item":"https://kunlungrowth.com/"},
+              {"@type":"ListItem","position":2,"name":"企业 AI 落地资源中心","item":"https://kunlungrowth.com/resources/"},
+              {"@type":"ListItem","position":3,"name":"企业生成式 AI 员工使用规范","item":"https://kunlungrowth.com/resources/enterprise-generative-ai-employee-usage-policy/"}
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="/"><span class="brand-mark">K</span><span>昆仑增长</span></a>
+      <nav aria-label="主导航"><a href="/services/enterprise-ai-training/">培训</a><a href="/services/enterprise-ai-implementation/">落地</a><a href="/resources/">资源</a><a href="/faq/">FAQ</a></nav>
+      <a class="header-cta" href="https://work.weixin.qq.com/kfid/kfccff6a6edfbee73bc">预约沟通 <span>↗</span></a>
+    </header>
+    <main class="page-main">
+      <p class="breadcrumb"><a href="/">首页</a> / <a href="/resources/">资源中心</a> / 企业生成式 AI 员工使用规范</p>
+      <p class="page-kicker">员工规范 / Generative AI Employee Use Policy</p>
+      <h1>企业生成式 AI 员工使用规范，<br />把“能不能用”写成可执行动作。</h1>
+      <p class="page-lead">员工使用生成式 AI 前，先判断资料是否允许输入、工具是否在批准清单、输出是否需要事实与敏感信息核验。AI 只负责准备草稿、整理和提示；员工对提交、发送、发布、付款、审批和客户承诺负责。</p>
+      <div class="definition"><strong>边界声明</strong>本页面是一份内部讨论模板，不构成法律意见、合规评估、劳动制度或具体场景结论。正式制度应由组织授权部门结合现行法律、合同、行业要求和内部制度审定。</div>
+
+      <section class="page-section">
+        <h2>四条先记住</h2>
+        <ol>
+          <li><strong>不确定能不能输入，就先不要输入。</strong>向资料所有者或信息安全联系人确认。</li>
+          <li><strong>AI 输出默认是草稿。</strong>它不是事实、意见、审批或承诺，员工必须按岗位要求核验。</li>
+          <li><strong>高影响动作必须人工确认。</strong>对外发送、正式发布、合同、价格、付款、订单、审批、招聘和绩效判断不得由 AI 独立完成。</li>
+          <li><strong>发现异常立即停止并报告。</strong>误传、越权、虚构或无法解释时，不要继续扩大传播或自行掩盖。</li>
+        </ol>
+      </section>
+
+      <section class="page-section">
+        <h2>资料输入分三级</h2>
+        <table>
+          <thead><tr><th>等级</th><th>示例</th><th>员工动作</th></tr></thead>
+          <tbody>
+            <tr><td>可在批准工具中使用</td><td>公开资料、已确认可公开的模板、获授权且完成必要处理的测试样本</td><td>仍要核对用途、来源和输出，不代表可以直接发布</td></tr>
+            <tr><td>需先确认</td><td>内部经营数据、客户资料、员工信息、未公开合同/报价、源代码、知识库原文、会议记录</td><td>由资料所有者、安全或法务确认用途、最小范围、账号、保存和删除</td></tr>
+            <tr><td>禁止直接输入</td><td>密码、访问令牌、Cookie、私钥、助记词、完整身份证件信息、未授权敏感资料或组织禁止项</td><td>不要输入；若误传，立即停止并按事件渠道报告</td></tr>
+          </tbody>
+        </table>
+        <p><strong>重要：</strong>“工具已获批准”不等于“所有资料都可以输入”；脱敏也不自动等于获得授权。</p>
+      </section>
+
+      <section class="page-section">
+        <h2>完整规范草案：六个执行模块</h2>
+        <h3>1. 工具与账号</h3>
+        <p>只使用组织批准的账号、区域、模型和插件。不得共用个人账号处理公司资料，不得绕过登录、权限、审计或安全限制。工具的数据保留说明、插件或服务区域发生变化时，应重新评估。</p>
+        <h3>2. 输出与事实核验</h3>
+        <p>对姓名、数字、日期、政策、法规、合同条款、客户信息、引用、代码依赖和来源逐项核验。找不到来源就标为待核实，不用“模型说的”作为依据。</p>
+        <h3>3. 人工审核与外部动作</h3>
+        <p>AI 可以生成提纲、草稿、分类、检索结果和待办建议；员工与业务负责人负责事实、适用范围、语气、敏感信息、引用和最终决定。发送、发布、付款、签署、审批或客户承诺必须由授权人员明确确认。</p>
+        <h3>4. 记录与留痕</h3>
+        <p>按项目要求记录工具、日期、用途、输入资料类别、输出用途、审核人和异常；不为留痕而复制不必要的个人信息或敏感原文。</p>
+        <h3>5. 事件报告</h3>
+        <p>误传、越权访问、异常输出、疑似资料泄露或恶意提示时，立即停止相关动作，通过组织指定的 IT、信息安全或管理渠道报告工具、时间、资料类别、可见范围和已采取的隔离动作。</p>
+        <h3>6. 停止与恢复</h3>
+        <p>输入边界不明、批准范围变化、关键输出无法验证、审核人缺席、异常无法回退或外部动作误执行时，暂停相关用例。只有在资料、权限、人审和回退重新确认后，才由授权人决定恢复。</p>
+      </section>
+
+      <section class="page-section">
+        <h2>可复制：员工一页使用检查清单</h2>
+        <details class="copy-checklist" open>
+          <summary>复制使用前、使用中、使用后检查清单</summary>
+          <textarea id="employee-ai-policy-checklist" readonly aria-label="企业生成式 AI 员工使用检查清单">生成式 AI 使用前 / 使用中 / 使用后检查清单
+
+使用前
+□ 我使用的是组织批准的账号、工具、模型和插件
+□ 输入资料的所有者、授权范围和敏感等级已确认
+□ 没有输入密码、令牌、Cookie、私钥、助记词或不必要的个人信息
+□ 已写清 AI 只做什么，哪些动作绝不自动执行
+□ 已指定输出审核人、审核点和异常回退流程
+
+使用中
+□ 我把 AI 输出当作草稿，保留来源并标记待核实内容
+□ 我核验了事实、数字、日期、引用、权限和适用范围
+□ 我没有把未审输出直接发送、发布、付款、审批或对客户承诺
+□ 没有把资料复制到未批准工具或无关人员可见位置
+
+使用后
+□ 已按项目要求记录工具、用途、审核人和异常
+□ 需要对外或高影响动作时，已取得授权人员明确确认
+□ 发现误传、越权、虚构、偏见、隐私或安全风险时，已停止并报告
+□ 继续使用前，资料、权限、人审和回退条件仍然有效
+
+说明：本清单是内部讨论模板，不替代正式制度、法律意见或合规评估。</textarea>
+          <button class="copy-action" type="button" data-copy-target="employee-ai-policy-checklist">一键复制员工检查清单</button>
+        </details>
+      </section>
+
+      <section class="page-section">
+        <h2>把规范变成培训与试点动作</h2>
+        <ol>
+          <li>由管理者、信息安全、HR、法务和业务负责人确定正式范围、批准工具清单、资料分级和报告渠道。</li>
+          <li>让每个岗位用一条真实但低风险的任务演练“输入判断—生成—核验—人工确认—记录”。</li>
+          <li>把高影响动作列成岗位红线，在系统上保留确认人和回退入口，不只写口号。</li>
+          <li>将检查清单放进培训、项目启动和部门 SOP，收集员工遇到的灰区问题并按版本修订。</li>
+          <li>工具、模型、插件、资料类型或业务流程变化时重新评估，不把旧批准自动沿用到新场景。</li>
+        </ol>
+      </section>
+
+      <section class="page-section">
+        <h2>参考依据与适用边界</h2>
+        <p>本模板采用“组织治理—场景映射—测量—持续管理”的风险思路，并将人工监督、角色责任、记录和停止条件转为员工可执行动作。具体用例是否适用中国法律、行业监管、客户合同或跨境要求，必须结合实际主体、资料、用途和系统判断。</p>
+        <p class="source-note">参考：<a href="https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence" rel="noopener">NIST AI RMF：Generative AI Profile</a>、<a href="https://airc.nist.gov/airmf-resources/playbook/govern/" rel="noopener">NIST AI RMF Playbook：Govern</a>、<a href="https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm" rel="noopener">国家网信办《生成式人工智能服务管理暂行办法》</a>。NIST 文件为自愿参考；中国规则的具体适用性请核对现行正式文本和专业意见。</p>
+      </section>
+
+      <section class="page-section faq-list">
+        <h2>常见问题</h2>
+        <details><summary>公司批准了某个 AI 工具，员工就可以输入所有内部资料吗？</summary><p>不可以。工具获批与具体资料获准输入是两件事，仍需确认资料所有者、用途、敏感等级、访问角色、保存和删除方式。</p></details>
+        <details><summary>AI 写的邮件可以直接发给客户吗？</summary><p>默认不可以。员工应核验事实、承诺、价格、附件、收件人和语气，并按组织流程由授权人员确认后再发送。</p></details>
+        <details><summary>员工误把敏感资料粘贴进 AI 应该怎么办？</summary><p>立即停止继续使用和传播，保留必要记录，并按组织指定的信息安全或事件渠道报告，不要自行扩大处理范围。</p></details>
+        <details><summary>生成式 AI 员工使用规范是法律文件吗？</summary><p>不是。本页是内部讨论模板，不构成法律意见、合规评估、劳动制度或对具体场景的结论。</p></details>
+        <details><summary>员工可以用个人 AI 账号处理工作资料吗？</summary><p>除非组织明确批准并完成资料和安全评估，否则不应使用个人账号处理公司资料。</p></details>
+        <details><summary>员工使用规范会不会阻止团队使用 AI？</summary><p>目标是把可控用途说清楚。公开或已授权的低风险任务可以在批准工具和人工审核边界内使用，高风险场景应先补资料、权限、审核和回退条件。</p></details>
+      </section>
+
+      <section class="page-cta">
+        <h2>先把员工每天遇到的灰区列出来。</h2>
+        <p>带上现有工具清单、资料分类、典型岗位任务和事件报告路径，把规范草案改成培训与试点中的可执行检查点。</p>
+        <a class="button light" href="https://work.weixin.qq.com/kfid/kfccff6a6edfbee73bc">发起生成式 AI 使用规范沟通 <span>→</span></a>
+      </section>
+      <nav class="page-footer-links" aria-label="延伸阅读">
+        <a href="/resources/enterprise-ai-security-governance/">企业 AI 数据安全与治理</a>
+        <a href="/resources/ai-agent-human-review-governance/">Agent 人工审核与执行门禁</a>
+        <a href="/resources/content-team-ai-review-sop/">内容团队 AI 人工审核 SOP</a>
+        <a href="/resources/enterprise-ai-pilot-checklist/">企业 AI 试点检查清单</a>
+        <a href="/services/enterprise-ai-office-training/">企业 AI 办公培训</a>
+        <a href="/resources/">资源中心</a>
+      </nav>
+    </main>
+    <footer><a class="brand" href="/"><span class="brand-mark">K</span><span>昆仑增长</span></a><p>企业 AI 培训与落地</p><p>© 2026 Kunlun Growth</p></footer>
+    <script src="/site.js" defer></script>
+  </body>
+</html>
