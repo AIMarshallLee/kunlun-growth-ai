@@ -8,6 +8,7 @@ export type SitemapSlugs = {
 
 const publicStaticPaths = [
   "/",
+  "/en",
   "/about",
   "/tutorials",
   "/cases",
