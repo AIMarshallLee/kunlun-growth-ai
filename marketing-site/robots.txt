@@ -10,4 +10,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://kunlungrowth.cn/sitemap.xml
+Sitemap: https://kunlungrowth.com/sitemap.xml
