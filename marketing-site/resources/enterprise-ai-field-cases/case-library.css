@@ -256,6 +256,23 @@ body.case-library-page {
   box-shadow: 0 18px 55px rgba(18, 46, 39, 0.08);
 }
 
+.course-demo-lab {
+  margin: 0 0 84px;
+  padding: clamp(22px, 4vw, 42px);
+  border: 1px solid rgba(156, 116, 25, 0.28);
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(255, 244, 213, 0.88), rgba(255, 253, 248, 0.96));
+  box-shadow: 0 18px 55px rgba(82, 59, 11, 0.08);
+}
+
+.course-demo-lab .case-section-heading {
+  margin-bottom: 22px;
+}
+
+.course-demo-panel {
+  padding-top: 0;
+}
+
 .demo-disclaimer {
   display: flex;
   gap: 10px;
@@ -391,6 +408,7 @@ body.case-library-page {
 .demo-result-card h4 {
   margin: 0 0 10px;
   font-size: 1rem;
+  overflow-wrap: anywhere;
 }
 
 .demo-input-card p,
@@ -399,6 +417,14 @@ body.case-library-page {
   color: var(--case-ink-soft);
   font-size: 0.9rem;
   line-height: 1.65;
+}
+
+.demo-gate-code {
+  display: block;
+  margin-top: 4px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0;
 }
 
 .demo-result-card ul {
@@ -467,6 +493,7 @@ body.case-library-page {
   background: #faf9f5;
 }
 
+.demo-output-placeholder[hidden],
 .demo-output[hidden] {
   display: none;
 }

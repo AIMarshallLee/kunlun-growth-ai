@@ -28,7 +28,7 @@
     });
   });
 
-  panels.forEach((panel) => {
+  function bindDemoRun(panel, label = "演示") {
     const runButton = panel.querySelector("[data-run-demo]");
     const steps = Array.from(panel.querySelectorAll("[data-demo-step]"));
     const placeholder = panel.querySelector("[data-demo-placeholder]");
@@ -36,16 +36,19 @@
     const status = panel.querySelector("[data-demo-status]");
     if (!runButton || !output) return;
 
-    runButton.textContent = "运行 Demo";
-    if (placeholder) placeholder.textContent = placeholder.textContent.replace(/运行合成演示/g, "运行 Demo");
+    const actionLabel = label === "演示" ? "运行演示" : `运行${label}`;
+    const runningLabel = label === "演示" ? "演示运行中…" : `${label}运行中…`;
+    const rerunLabel = label === "演示" ? "重新运行演示" : `重新运行${label}`;
+    runButton.textContent = actionLabel;
+    if (placeholder) placeholder.textContent = placeholder.textContent.replace(/运行合成演示/g, actionLabel);
 
     runButton.addEventListener("click", () => {
       runButton.disabled = true;
-      runButton.textContent = "Demo 运行中…";
+      runButton.textContent = runningLabel;
       output.hidden = true;
       if (placeholder) placeholder.hidden = false;
       steps.forEach((step) => step.classList.remove("is-active"));
-      if (status) status.textContent = "Demo 开始，正在按步骤处理。";
+      if (status) status.textContent = `${label}开始，正在按步骤处理。`;
 
       steps.forEach((step, index) => {
         window.setTimeout(() => {
@@ -58,14 +61,17 @@
         if (placeholder) placeholder.hidden = true;
         output.hidden = false;
         runButton.disabled = false;
-        runButton.textContent = "重新运行 Demo";
-        if (status) status.textContent = "Demo 完成，请查看输出。";
+        runButton.textContent = rerunLabel;
+        if (status) status.textContent = `${label}完成，请查看输出。`;
       }, 260 * (steps.length + 1));
     });
-  });
+  }
+
+  panels.forEach((panel) => bindDemoRun(panel));
+  bindDemoRun(root.querySelector("#demo-work-delivery .course-demo-panel"), "课程合成演示");
 
   root.querySelectorAll(".demo-panel-heading h3").forEach((heading) => {
-    heading.textContent = heading.textContent.replace(/^演示\s*/, "Demo ");
+    heading.textContent = heading.textContent.replace(/^演示\s*/, "演示 ");
   });
   root.querySelectorAll(".demo-column > span").forEach((label) => {
     if (label.textContent.trim() === "虚构输入") label.textContent = "演示输入";
